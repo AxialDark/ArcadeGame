@@ -73,7 +73,65 @@ namespace PongGame
 
         public void HandlePickUp(GameObject pickUp)
         {
+            if(pickUp is PickUp)
+            {
+                if((pickUp as PickUp).PickUpPowerUp == PickUpType.BigBall)
+                {
+                    //TO something
+                }
+                if((pickUp as PickUp).PickUpPowerUp == PickUpType.BigPlayer)
+                {
 
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.ColorChange)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.FastBall)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.FastPlayer)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.InverseControl)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.MultiBall)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.RotatingObstacle)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SlowPlayer)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SmallBall)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SmallPlayer)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SpawnObstacle)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SplitAndSlowBall)
+                {
+
+                }
+                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.xScore)
+                {
+
+                }
+            }
         }
     }
 }

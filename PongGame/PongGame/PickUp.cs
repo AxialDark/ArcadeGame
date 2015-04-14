@@ -8,12 +8,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PongGame
 {
+   
     class PickUp : GameObject
     {
         // Fields
         private bool hasEndTime;
         private int effectTime;
-        private PickUpType type;
+        private PickUpType pickUpPowerUp;
         
         // Properties
         public bool HasEndTime
@@ -24,9 +25,10 @@ namespace PongGame
         {
             get { return effectTime; }
         }
-        public PickUpType Type
+        public PickUpType PickUpPowerUp
         {
-            get { return type; }
+            get { return pickUpPowerUp; }
+            set { pickUpPowerUp = value; }
         }
 
         // Constructor

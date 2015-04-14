@@ -13,7 +13,7 @@ namespace PongGame
         // Fields
         private bool hasEndTime;
         private int effectTime;
-        private Type pickUpTime;
+        private PickUpType type;
         
         // Properties
         public bool HasEndTime
@@ -24,9 +24,9 @@ namespace PongGame
         {
             get { return effectTime; }
         }
-        public Type PickUpTime
+        public PickUpType Type
         {
-            get { return pickUpTime; }
+            get { return type; }
         }
 
         // Constructor

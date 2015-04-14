@@ -27,7 +27,7 @@ namespace PongGame
         }
 
         // Constructor
-        public Player(Vector2 position, Rectangle rect, bool isFirstPlayer) : base(position, rect)
+        public Player(Vector2 position, bool isFirstPlayer) : base(position)
         {
             // Creates animations
             //CreateAnimation("IdleRight", 1, 743, 0, 38, 39, Vector2.Zero, 1);
@@ -37,8 +37,7 @@ namespace PongGame
 
             this.isFirstPlayer = isFirstPlayer;
             this.position = position;
-            this.rect = rect;
-            this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
+            this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
 
         // Methods

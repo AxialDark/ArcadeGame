@@ -17,17 +17,16 @@ namespace PongGame
 
 
         // Constructor
-        public Obstacles(Vector2 position, Rectangle rect) : base(position, rect)
+        public Obstacles(Vector2 position) : base(position)
         {
             this.position = position;
-            this.rect = rect;
-            this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
+            this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
 
         // Methods
         public override void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>(@"");
+            texture = content.Load<Texture2D>(@"white");
         }
 
         public override void Update(GameTime gameTime)

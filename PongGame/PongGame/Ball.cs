@@ -17,20 +17,19 @@ namespace PongGame
 
 
         // Constructor
-        public Ball(Vector2 position, Rectangle rect)
-            : base(position, rect)
+        public Ball(Vector2 position)
+            : base(position)
         {
             this.position = position;
-            this.rect = rect;
             this.speed = 50;
-            this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
+            this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
         }
 
         // Methods
         public override void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>(@"");
+            texture = content.Load<Texture2D>(@"white");
         }
 
         public override void Update(GameTime gameTime)

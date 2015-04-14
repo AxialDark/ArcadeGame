@@ -44,9 +44,14 @@ namespace PongGame
                 );
             }
         }
+        public Vector2 Velocity
+        {
+            get { return velocity; }
+            set { velocity = value; }
+        }
 
         // Constructor
-        public GameObject(Vector2 position, Rectangle rect)
+        public GameObject(Vector2 position)
         {
             this.position = position;
         }

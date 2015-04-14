@@ -22,7 +22,7 @@ namespace PongGame
         {
             this.position = position;
             this.rect = rect;
-            this.speed = 50;
+            this.Speed = 50;
             this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
         }
@@ -35,7 +35,7 @@ namespace PongGame
 
         public override void Update(GameTime gameTime)
         {
-            velocity *= speed;
+            velocity *= Speed;
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 

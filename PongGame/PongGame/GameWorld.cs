@@ -16,8 +16,8 @@ namespace PongGame
         private static List<GameObject> objects = new List<GameObject>();
         private static List<GameObject> newObjects = new List<GameObject>();
         private static List<GameObject> objectsToRemove = new List<GameObject>();
-        private int player1Score;
-        private int player2Score;
+        private static int player1Score;
+        private  static int player2Score;
 
         // Properties
         public static List<GameObject> Objects
@@ -35,12 +35,12 @@ namespace PongGame
             get { return objectsToRemove; }
             set { objectsToRemove = value; }
         }
-        public int Player1Score
+        public static int Player1Score
         {
             get { return player1Score; }
             set { player1Score = value; }
         }
-        public int Player2Score
+        public static int Player2Score
         {
             get { return player2Score; }
             set { player2Score = value; }

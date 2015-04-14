@@ -17,25 +17,43 @@ namespace PongGame
 
 
         // Constructor
-        public Ball(Vector2 position, Rectangle rect) : base(position)
+        public Ball(Vector2 position, Rectangle rect)
+            : base(position, rect)
         {
-
+            this.position = position;
+            this.rect = rect;
+            this.speed = 50;
+            this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
+            this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
         }
 
         // Methods
         public override void LoadContent(ContentManager content)
         {
-
+            texture = content.Load<Texture2D>(@"");
         }
 
         public override void Update(GameTime gameTime)
         {
+            velocity *= speed;
 
+            float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            position += (velocity * deltaTime);
+
+            base.Update(gameTime);
         }
 
         public override void OnCollision(GameObject other)
         {
-
+            if (other is Obstacles)
+            {
+                this.velocity.Y *= -1;
+            }
+            if (other is Player)
+            {
+                this.velocity.X *= -1;
+            }
         }
     }
 }

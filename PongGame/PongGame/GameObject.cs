@@ -18,7 +18,7 @@ namespace PongGame
         protected Vector2 velocity;
         protected float speed;
         protected int frames;
-        private Rectangle rect;
+        protected Rectangle rect;
         private Rectangle[] rectangles;
         private Vector2 offset;
         private int currentIndex;
@@ -46,7 +46,7 @@ namespace PongGame
         }
 
         // Constructor
-        public GameObject(Vector2 position)
+        public GameObject(Vector2 position, Rectangle rect)
         {
             this.position = position;
         }
@@ -77,6 +77,8 @@ namespace PongGame
                 timeElapsed = 0;
                 currentIndex = 0;
             }
+
+            HandleCollision();
         }
 
         protected void CreateAnimation(string name, int frames, int yPos, int xStartFrame, int width, int height, Vector2 offset, float fps)
@@ -92,9 +94,20 @@ namespace PongGame
             offset = animations[name].Offset * scale;
         }
 
-        public virtual void OnCollision(GameObject other)
-        {
+        public abstract void OnCollision(GameObject other);
 
+        private void HandleCollision()
+        {
+            foreach (GameObject go in GameWorld.Objects)
+            {
+                if (go != this)
+                {
+                    if (go.CollisionRect.Intersects(this.CollisionRect))
+                    {
+                        OnCollision(go);
+                    }
+                }
+            }
         }
     }
 }

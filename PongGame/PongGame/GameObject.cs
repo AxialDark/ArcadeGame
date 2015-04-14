@@ -16,7 +16,7 @@ namespace PongGame
         protected Vector2 position = Vector2.Zero;
         protected Vector2 origin = Vector2.Zero;
         protected Vector2 velocity;
-        protected float speed;
+        private float speed;        
         protected int frames;
         protected Rectangle rect;
         private Rectangle[] rectangles;
@@ -28,6 +28,8 @@ namespace PongGame
         private float layver;
         private float scale = 1f;
         private Color color = Color.White;
+
+      
         private SpriteEffects effects = new SpriteEffects();
         private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
 
@@ -43,6 +45,21 @@ namespace PongGame
                     rectangles[0].Width, rectangles[0].Height
                 );
             }
+        }
+        public float Scale
+        {
+            get { return scale; }
+            set { scale = value; }
+        }
+        public Color Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+        public float Speed
+        {
+            get { return speed; }
+            set { speed = value; }
         }
 
         // Constructor

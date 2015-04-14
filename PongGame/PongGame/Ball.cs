@@ -20,7 +20,12 @@ namespace PongGame
         public Ball(Vector2 position) : base(position)
         {
             this.position = position;
+<<<<<<< HEAD
             this.speed = 50;
+=======
+            this.rect = rect;
+            this.Speed = 50;
+>>>>>>> 670283d85cd4778c75cf34534972475493e32866
             this.origin = new Vector2(texture.Width / 2, texture.Height / 2);
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
         }
@@ -33,7 +38,7 @@ namespace PongGame
 
         public override void Update(GameTime gameTime)
         {
-            velocity *= speed;
+            velocity *= Speed;
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 

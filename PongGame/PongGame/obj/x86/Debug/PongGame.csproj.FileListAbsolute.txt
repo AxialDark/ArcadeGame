@@ -54,9 +54,7 @@ C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\S
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
-<<<<<<< HEAD
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
-=======
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.exe
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.pdb
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
@@ -85,4 +83,30 @@ C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.D
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.XInput.xml
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.RawInput.xml
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
->>>>>>> a150dab040134cd9e00e378fbde059d0f8d2ce21
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\bowserSprites.png
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\CollisionTexture.png
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\donkeyKongSprites.png
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\PongGame.exe
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\PongGame.pdb
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.exe
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.pdb

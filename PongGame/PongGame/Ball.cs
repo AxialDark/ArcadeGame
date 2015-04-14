@@ -17,8 +17,7 @@ namespace PongGame
 
 
         // Constructor
-        public Ball(Vector2 position)
-            : base(position)
+        public Ball(Vector2 position) : base(position)
         {
             this.position = position;
             this.speed = 50;
@@ -34,7 +33,7 @@ namespace PongGame
 
         public override void Update(GameTime gameTime)
         {
-            velocity *= speed;
+            velocity *= Speed;
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 

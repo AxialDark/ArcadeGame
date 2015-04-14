@@ -32,18 +32,19 @@ namespace PongGame
         // Constructor
         public Player(Vector2 position, bool isFirstPlayer) : base(position)
         {
-            // Creates animations
-            //CreateAnimation("IdleRight", 1, 743, 0, 38, 39, Vector2.Zero, 1);
-            //CreateAnimation("RunUp", 6, 353, 0, 39, 40, Vector2.Zero, 6);
+            //Creates animations
+            CreateAnimation("IdleRight", 1, 743, 0, 38, 39, Vector2.Zero, 1);
+            CreateAnimation("RunUp", 6, 353, 0, 39, 40, Vector2.Zero, 6);
 
-            //PlayAnimation("IdleRight");
+            PlayAnimation("IdleRight");
 
             this.isFirstPlayer = isFirstPlayer;
+            this.speed = 50;
             this.position = position;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
 
-        // Methods
+        // Methods 
         public override void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>(@"bowserSprites");

@@ -64,9 +64,9 @@ namespace PongGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            newObjects.Add(new Player(new Vector2(10, 250), true));
-            newObjects.Add(new Player(new Vector2(Window.ClientBounds.Width - 10, 250), false));
-            newObjects.Add(new Ball(new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height / 2)));
+            objects.Add(new Player(new Vector2(10, 250), true));
+            objects.Add(new Player(new Vector2(Window.ClientBounds.Width - 100, 250), false));
+            objects.Add(new Ball(new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height / 2)));
 
             base.Initialize();
         }
@@ -81,6 +81,10 @@ namespace PongGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            foreach (GameObject obj in objects)
+            {
+                obj.LoadContent(Content);
+            }
 
         }
 
@@ -105,6 +109,11 @@ namespace PongGame
 
             // TODO: Add your update logic here
 
+            foreach (GameObject obj in objects)
+            {
+                obj.Update(gameTime);
+            }
+
             base.Update(gameTime);
         }
 
@@ -119,10 +128,12 @@ namespace PongGame
             // TODO: Add your drawing code here
             spriteBatch.Begin();
 
-            foreach (GameObject go in newObjects)
+            foreach (GameObject go in objects)
             {
                 go.Draw(spriteBatch);
             }
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

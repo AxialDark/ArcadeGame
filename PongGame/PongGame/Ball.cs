@@ -20,7 +20,7 @@ namespace PongGame
         public Ball(Vector2 position) : base(position)
         {
             this.position = position;
-            this.speed = 50;
+            this.speed = 100;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
         }
@@ -29,10 +29,16 @@ namespace PongGame
         public override void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>(@"white");
+
+            CreateAnimation("IdleBall", 1, 0, 1, 20, 20, new Vector2(0, 0), 1);
+            PlayAnimation("IdleBall");
+
+            base.LoadContent(content);
         }
 
         public override void Update(GameTime gameTime)
         {
+            velocity.Normalize();
             velocity *= Speed;
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;

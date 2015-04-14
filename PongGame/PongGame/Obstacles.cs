@@ -19,7 +19,7 @@ namespace PongGame
         // Constructor
         public Obstacles(Vector2 position) : base(position)
         {
-            this.position = position;
+            this.Position = position;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
 

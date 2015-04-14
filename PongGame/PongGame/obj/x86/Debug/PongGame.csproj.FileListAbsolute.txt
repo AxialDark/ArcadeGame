@@ -147,3 +147,5 @@ C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny ma
 C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
 C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\obj\x86\Debug\PongGame.exe
 C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\obj\x86\Debug\PongGame.pdb
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.xnb
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.spritefont

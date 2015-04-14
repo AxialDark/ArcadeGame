@@ -66,6 +66,11 @@ namespace PongGame
             get { return speed; }
             set { speed = value; }
         }
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
 
         // Constructor
         public GameObject(Vector2 position)

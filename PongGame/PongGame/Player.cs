@@ -40,7 +40,7 @@ namespace PongGame
 
             this.isFirstPlayer = isFirstPlayer;
             this.speed = 100;
-            this.position = position;
+            this.Position = position;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
 
@@ -58,7 +58,7 @@ namespace PongGame
             HandleInput(Keyboard.GetState());
             velocity *= Speed;
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            position += (velocity * deltaTime);
+            Position += (velocity * deltaTime);
 
             base.Update(gameTime);
         }

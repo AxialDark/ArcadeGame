@@ -19,7 +19,7 @@ namespace PongGame
         // Constructor
         public Ball(Vector2 position) : base(position)
         {
-            this.position = position;
+            this.Position = position;
             this.speed = 200;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
@@ -55,7 +55,7 @@ namespace PongGame
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            position += (velocity * deltaTime);
+            Position += (velocity * deltaTime);
 
             HandlePoint();
 
@@ -76,17 +76,17 @@ namespace PongGame
 
         private void HandlePoint()
         {
-            if(this.position.X > GameWorld.windowWidth)
+            if(this.Position.X > GameWorld.windowWidth)
             {
-                PoolManager.ReleaseBallObject(this);
                 GameWorld.ObjectsToRemove.Add(this);
+                //PoolManager.ReleaseBallObject(this);
                 GameWorld.Player1Score++;
                 SpawnNewBall();
             }
-            else if(this.position.X < -20)
+            else if(this.Position.X < -20)
             {
-                PoolManager.ReleaseBallObject(this);
                 GameWorld.ObjectsToRemove.Add(this);
+                //PoolManager.ReleaseBallObject(this);
                 GameWorld.Player2Score++;
                 SpawnNewBall();
             }

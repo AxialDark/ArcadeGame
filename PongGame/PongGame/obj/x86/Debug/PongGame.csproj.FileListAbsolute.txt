@@ -110,3 +110,4 @@ C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.R
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.exe
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.pdb
+C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\questionMark.png

@@ -46,7 +46,7 @@ namespace PongGame
         }
 
         // Constructor
-        public GameObject(Vector2 position, Rectangle rect)
+        public GameObject(Vector2 position)
         {
             this.position = position;
         }

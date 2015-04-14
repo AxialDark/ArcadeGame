@@ -16,7 +16,7 @@ namespace PongGame
         protected Vector2 position = Vector2.Zero;
         protected Vector2 origin = Vector2.Zero;
         protected Vector2 velocity;
-        protected float speed;        
+        protected float speed;
         protected int frames;
         protected Rectangle rect;
         private Rectangle[] rectangles;
@@ -29,7 +29,7 @@ namespace PongGame
         private float scale = 1f;
         private Color color = Color.White;
 
-      
+
         private SpriteEffects effects = new SpriteEffects();
         private Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
 
@@ -111,7 +111,8 @@ namespace PongGame
 
         protected void CreateAnimation(string name, int frames, int yPos, int xStartFrame, int width, int height, Vector2 offset, float fps)
         {
-            animations.Add(name, new Animation(frames, yPos, xStartFrame, width, height, offset, fps));
+            if (!animations.ContainsKey(name))
+                animations.Add(name, new Animation(frames, yPos, xStartFrame, width, height, offset, fps));
         }
 
         public void PlayAnimation(string name)

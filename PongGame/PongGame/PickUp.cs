@@ -32,7 +32,7 @@ namespace PongGame
         }
 
         // Constructor
-        public PickUp(Vector2 position, bool hasEndTime, int effectTime, Type pickUpTime) : base(position)
+        public PickUp(Vector2 position, bool hasEndTime, int effectTime, PickUpType pickUpPowerUp) : base(position)
         {
 
         }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace PongGame
         private static int player2Score;
         public static int windowWidth;
         public static int windowHeight;
+        public static SpriteFont sf;
+        public static ContentManager myContent;
 
         // Properties
         public static List<GameObject> Objects
@@ -66,8 +69,9 @@ namespace PongGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            myContent = Content;
             objects.Add(new Player(new Vector2(10, 250), true));
-            objects.Add(new Player(new Vector2(Window.ClientBounds.Width - 100, 250), false));
+            objects.Add(new Player(new Vector2(Window.ClientBounds.Width - 50, 250), false));
             objects.Add(new Ball(new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height / 2)));
             objects.Add(new Obstacles(new Vector2(0, 0)));
             objects.Add(new Obstacles(new Vector2(0, Window.ClientBounds.Height - 20)));
@@ -75,6 +79,8 @@ namespace PongGame
             base.Initialize();
             windowWidth = Window.ClientBounds.Width;
             windowHeight = Window.ClientBounds.Height;
+            
+
         }
 
         /// <summary>
@@ -85,6 +91,7 @@ namespace PongGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            sf = Content.Load<SpriteFont>(@"NewFont");
 
             // TODO: use this.Content to load your game content here
             foreach (GameObject obj in objects)
@@ -114,7 +121,15 @@ namespace PongGame
                 Exit();
 
             // TODO: Add your update logic here
+            objects.AddRange(newObjects);
+            newObjects.Clear();
 
+            foreach(GameObject dead in objectsToRemove)
+            {
+                objects.Remove(dead);
+            }
+            objectsToRemove.Clear();
+            
             foreach (GameObject obj in objects)
             {
                 obj.Update(gameTime);
@@ -138,6 +153,9 @@ namespace PongGame
             {
                 go.Draw(spriteBatch);
             }
+
+            spriteBatch.DrawString(sf, player1Score.ToString(), new Vector2(8, 0), Color.Black);
+            spriteBatch.DrawString(sf, player2Score.ToString(), new Vector2(Window.ClientBounds.Width - 20, 0), Color.Black);
 
             spriteBatch.End();
 

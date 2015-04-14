@@ -114,3 +114,36 @@ C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\b
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\white.png
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\questionMark.png
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.xnb
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\ball.png
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\bowserSprites.png
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\CollisionTexture.png
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\donkeyKongSprites.png
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\white.png
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\questionMark.png
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.spritefont
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\PongGame.exe
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\PongGame.pdb
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\obj\x86\Debug\PongGame.exe
+C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\obj\x86\Debug\PongGame.pdb

@@ -34,13 +34,14 @@ namespace PongGame
                     this.velocity.X = 1;
                 }
             }
+            LoadContent(GameWorld.myContent);
         }
 
         // Methods
         public override void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>(@"white");
-
+            
             CreateAnimation("IdleBall", 1, 0, 1, 20, 20, new Vector2(0, 0), 1);
             PlayAnimation("IdleBall");
 
@@ -56,6 +57,8 @@ namespace PongGame
 
             position += (velocity * deltaTime);
 
+            HandlePoint();
+
             base.Update(gameTime);
         }
 
@@ -69,6 +72,28 @@ namespace PongGame
             {
                 this.velocity.X *= -1;
             }
+        }
+
+        private void HandlePoint()
+        {
+            if(this.position.X > GameWorld.windowWidth)
+            {
+                PoolManager.ReleaseBallObject(this);
+                GameWorld.ObjectsToRemove.Add(this);
+                GameWorld.Player1Score++;
+                SpawnNewBall();
+            }
+            else if(this.position.X < -20)
+            {
+                PoolManager.ReleaseBallObject(this);
+                GameWorld.ObjectsToRemove.Add(this);
+                GameWorld.Player2Score++;
+                SpawnNewBall();
+            }
+        }
+        private void SpawnNewBall()
+        {
+            GameWorld.NewObjects.Add(PoolManager.CreateBall());
         }
     }
 }

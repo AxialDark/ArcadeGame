@@ -40,6 +40,8 @@ namespace PongGame
         public override void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>(@"bowserSprites");
+
+            base.LoadContent(content);
         }
 
         public override void Update(GameTime gameTime)
@@ -63,6 +65,7 @@ namespace PongGame
         {
             if (keyState.IsKeyDown(Keys.W))
             {
+                PlayAnimation("RunUp");
                 velocity += new Vector2(0, -1);
             }
             else if (keyState.IsKeyDown(Keys.S))

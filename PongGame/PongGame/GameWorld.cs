@@ -8,29 +8,29 @@ namespace PongGame
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class GameWorld : Game
+    class GameWorld : Game
     {
         // Fields
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private List<GameObject> objects = new List<GameObject>();
-        private List<GameObject> newObjects = new List<GameObject>();
-        private List<GameObject> objectsToRemove = new List<GameObject>();
+        private static List<GameObject> objects = new List<GameObject>();
+        private static List<GameObject> newObjects = new List<GameObject>();
+        private static List<GameObject> objectsToRemove = new List<GameObject>();
         private int player1Score;
         private int player2Score;
 
         // Properties
-        public List<GameObject> Objects
+        public static List<GameObject> Objects
         {
             get { return objects; }
             set { objects = value; }
         }
-        public List<GameObject> NewObjects
+        public static List<GameObject> NewObjects
         {
             get { return newObjects; }
             set { newObjects = value; }
         }
-        public List<GameObject> ObjectsToRemove
+        public static List<GameObject> ObjectsToRemove
         {
             get { return objectsToRemove; }
             set { objectsToRemove = value; }

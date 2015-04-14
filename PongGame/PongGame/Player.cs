@@ -123,6 +123,7 @@ namespace PongGame
         {
             if (pickUp is PickUp)
             {
+                #region PickUp's
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.BigBall)
                 {
                     //TO something
@@ -186,6 +187,7 @@ namespace PongGame
                     GameWorld.Player1Score += 2;
                     GameWorld.Player2Score += 2;
                 }
+                #endregion
             }
         }
     }

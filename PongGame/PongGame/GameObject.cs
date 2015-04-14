@@ -54,16 +54,22 @@ namespace PongGame
         // Methods
         public virtual void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>(@"bowserSprites");
             boxTexture = content.Load<Texture2D>(@"CollisionTexture");
-
-            rect = new Rectangle(0, 250, texture.Width, texture.Height);
-            //int width = texture.Width / frames;
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, rectangles[currentIndex], color, rotation, origin, scale, effects, layver);
+
+            Rectangle topLine = new Rectangle(CollisionRect.X, CollisionRect.Y, CollisionRect.Width, 1);
+            Rectangle rightLine = new Rectangle(CollisionRect.X + CollisionRect.Width, CollisionRect.Y, 1, CollisionRect.Height);
+            Rectangle bottomLine = new Rectangle(CollisionRect.X, CollisionRect.Y + CollisionRect.Height, CollisionRect.Width, 1);
+            Rectangle leftLine = new Rectangle(CollisionRect.X, CollisionRect.Y, 1, CollisionRect.Height);
+
+            spriteBatch.Draw(boxTexture, topLine, Color.Red);
+            spriteBatch.Draw(boxTexture, rightLine, Color.Red);
+            spriteBatch.Draw(boxTexture, bottomLine, Color.Red);
+            spriteBatch.Draw(boxTexture, leftLine, Color.Red);
         }
 
         public virtual void Update(GameTime gameTime)

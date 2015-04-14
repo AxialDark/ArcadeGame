@@ -7,17 +7,17 @@ namespace PongGame
 {
     enum PickUpType
     {
-        SlowPlayer, 
-        FastPlayer, 
+        SlowPlayer,
+        FastPlayer,
         FastBall,
         SpawnObstacle,
         MultiBall,
-        BigPlayer, 
+        BigPlayer,
         SmallPlayer,
-        xScore, 
-        SplitSlowBall, 
-        ColorChange, 
-        BigBall, 
+        xScore,
+        SplitAndSlowBall,
+        ColorChange,
+        BigBall,
         SmallBall,
         RotatingObstacle,
         InverseControl

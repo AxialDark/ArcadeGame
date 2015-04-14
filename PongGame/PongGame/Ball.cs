@@ -20,9 +20,20 @@ namespace PongGame
         public Ball(Vector2 position) : base(position)
         {
             this.position = position;
-            this.speed = 100;
+            this.speed = 200;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
+            if (this.velocity.X == 0)
+            {
+                if (RandomPicker.Rnd.Next(2) == 0)
+                {
+                    this.velocity.X = -1;
+                }
+                else
+                {
+                    this.velocity.X = 1;
+                }
+            }
         }
 
         // Methods

@@ -27,6 +27,12 @@ namespace PongGame
         public override void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>(@"white");
+
+            CreateAnimation("IdleObstacle", 1, 0, 1, 1000, 20, new Vector2(0, 0), 1);
+
+            PlayAnimation("IdleObstacle");
+
+            base.LoadContent(content);
         }
 
         public override void Update(GameTime gameTime)

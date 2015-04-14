@@ -17,7 +17,9 @@ namespace PongGame
         private static List<GameObject> newObjects = new List<GameObject>();
         private static List<GameObject> objectsToRemove = new List<GameObject>();
         private static int player1Score;
-        private  static int player2Score;
+        private static int player2Score;
+        public static int windowWidth;
+        public static int windowHeight;
 
         // Properties
         public static List<GameObject> Objects
@@ -67,8 +69,12 @@ namespace PongGame
             objects.Add(new Player(new Vector2(10, 250), true));
             objects.Add(new Player(new Vector2(Window.ClientBounds.Width - 100, 250), false));
             objects.Add(new Ball(new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height / 2)));
-
+            objects.Add(new Obstacles(new Vector2(0, 0)));
+            objects.Add(new Obstacles(new Vector2(0, Window.ClientBounds.Height - 20)));
+            IsMouseVisible = true;
             base.Initialize();
+            windowWidth = Window.ClientBounds.Width;
+            windowHeight = Window.ClientBounds.Height;
         }
 
         /// <summary>

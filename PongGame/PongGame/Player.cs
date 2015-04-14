@@ -39,7 +39,7 @@ namespace PongGame
             PlayAnimation("IdleRight");
 
             this.isFirstPlayer = isFirstPlayer;
-            this.speed = 50;
+            this.speed = 100;
             this.position = position;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }

@@ -30,7 +30,8 @@ namespace PongGame
         }
 
         // Constructor
-        public Player(Vector2 position, bool isFirstPlayer) : base(position)
+        public Player(Vector2 position, bool isFirstPlayer)
+            : base(position)
         {
             //Creates animations
             CreateAnimation("MoveIdleUpLeftPlayer", 1, 0, 0, 35, 70, Vector2.Zero, 1);
@@ -53,7 +54,7 @@ namespace PongGame
             }
 
             this.isFirstPlayer = isFirstPlayer;
-            this.speed = 100;
+            this.speed = 450;
             this.Position = position;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
@@ -103,8 +104,20 @@ namespace PongGame
             //            PlayAnimation("CollisionDownRightPlayer");
             //        }
             //    }
-                
+
             //}
+
+            if (other is Obstacles)
+            {
+                if (position.Y + CollisionRect.Height < other.Position.Y)
+                {
+                    position.Y = 100;
+                }
+                if (position.Y + CollisionRect.Height > other.Position.Y)
+                {
+                    position.Y = other.Position.Y - CollisionRect.Height;
+                }
+            }
         }
         public void HandleInput(KeyboardState keyState)
         {

@@ -76,11 +76,13 @@ namespace PongGame
             objects.Add(new Obstacles(new Vector2(0, 0)));
             objects.Add(new Obstacles(new Vector2(0, Window.ClientBounds.Height - 20)));
             IsMouseVisible = true;
-            base.Initialize();
+            //graphics.IsFullScreen = true;
             windowWidth = Window.ClientBounds.Width;
             windowHeight = Window.ClientBounds.Height;
+            //graphics.ApplyChanges();
+            base.Initialize();
             
-
+            
         }
 
         /// <summary>

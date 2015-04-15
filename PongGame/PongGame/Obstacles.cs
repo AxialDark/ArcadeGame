@@ -20,7 +20,7 @@ namespace PongGame
         public Obstacles(Vector2 position) : base(position)
         {
             this.Position = position;
-            this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
+            this.Origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
 
         // Methods

@@ -53,7 +53,7 @@ namespace PongGame
             }
 
             this.isFirstPlayer = isFirstPlayer;
-            this.speed = 400;
+            this.speed = 100;
             this.Position = position;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }

@@ -54,10 +54,7 @@ C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\S
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.exe
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.pdb
-C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
-C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\bowserSprites.png
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\CollisionTexture.png
-C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\donkeyKongSprites.png
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\PongGame.exe
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\PongGame.pdb
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\MonoGame.Framework.dll
@@ -148,7 +145,6 @@ C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny ma
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.xnb
 C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.spritefont
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.xnb
-C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\ball.png
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\white.png
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.spritefont
 C:\Users\Munk\Dropbox\My own\Programmering\PongGame\PongGame\obj\x86\Debug\PongGame.exe
@@ -189,3 +185,5 @@ C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\C
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\white.png
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\questionMark.png
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.spritefont
+C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\ballSheet.png
+C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\staffSheet.png

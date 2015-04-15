@@ -16,7 +16,7 @@ namespace PongGame
         protected Vector2 position = Vector2.Zero;
         protected Vector2 origin = Vector2.Zero;
         protected Vector2 velocity;
-        protected float speed;
+        protected float speed = 200;
         protected int frames;
         protected Rectangle rect;
         private Rectangle[] rectangles;
@@ -65,6 +65,11 @@ namespace PongGame
         {
             get { return speed; }
             set { speed = value; }
+        }
+        public Vector2 Position
+        {
+            get { return position; }
+            set { position = value; }
         }
 
         // Constructor

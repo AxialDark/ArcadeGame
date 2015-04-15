@@ -19,18 +19,20 @@ namespace PongGame
         // Constructor
         public Ball(Vector2 position) : base(position)
         {
-            this.position = position;
-            this.speed = 200;
+            this.Position = position;
+            this.speed = 500;
             this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
             if (this.velocity.X == 0)
             {
                 if (RandomPicker.Rnd.Next(2) == 0)
                 {
+                    //PlayAnimation("MoveLeftBall");
                     this.velocity.X = -1;
                 }
                 else
                 {
+                    //PlayAnimation("MoveRightBall");
                     this.velocity.X = 1;
                 }
             }
@@ -40,10 +42,11 @@ namespace PongGame
         // Methods
         public override void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>(@"white");
+            texture = content.Load<Texture2D>(@"ballSheet");
             
-            CreateAnimation("IdleBall", 1, 0, 1, 20, 20, new Vector2(0, 0), 1);
-            PlayAnimation("IdleBall");
+            CreateAnimation("MoveLeftBall", 3, 0, 0, 40, 40, new Vector2(0, 0), 3);
+            CreateAnimation("MoveRightBall", 3, 40, 0, 40, 40, new Vector2(0, 0), 3);
+            PlayAnimation("MoveLeftBall");
 
             base.LoadContent(content);
         }
@@ -55,7 +58,7 @@ namespace PongGame
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            position += (velocity * deltaTime);
+            Position += (velocity * deltaTime);
 
             HandlePoint();
 
@@ -76,17 +79,17 @@ namespace PongGame
 
         private void HandlePoint()
         {
-            if(this.position.X > GameWorld.windowWidth)
+            if(this.Position.X > GameWorld.windowWidth)
             {
-                PoolManager.ReleaseBallObject(this);
                 GameWorld.ObjectsToRemove.Add(this);
+                //PoolManager.ReleaseBallObject(this);
                 GameWorld.Player1Score++;
                 SpawnNewBall();
             }
-            else if(this.position.X < -20)
+            else if(this.Position.X < -20)
             {
-                PoolManager.ReleaseBallObject(this);
                 GameWorld.ObjectsToRemove.Add(this);
+                //PoolManager.ReleaseBallObject(this);
                 GameWorld.Player2Score++;
                 SpawnNewBall();
             }

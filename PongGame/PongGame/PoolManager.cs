@@ -44,8 +44,18 @@ namespace PongGame
         private static void CleanUpBall(Ball obj)
         {
             obj.Position = new Vector2(GameWorld.windowWidth / 2, GameWorld.windowHeight / 2);
-            obj.Velocity = Vector2.Zero;
-            
+            obj.Velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
+            if (obj.Velocity.X == 0)
+            {
+                if (RandomPicker.Rnd.Next(2) == 0)
+                {
+                    obj.Velocity = new Vector2(-1, RandomPicker.Rnd.Next(-4, 5));
+                }
+                else
+                {
+                    obj.Velocity = new Vector2(1, RandomPicker.Rnd.Next(-4, 5));
+                }
+            }
         }
     }
 }

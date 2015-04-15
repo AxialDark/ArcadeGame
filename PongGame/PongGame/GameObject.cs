@@ -71,6 +71,11 @@ namespace PongGame
             get { return position; }
             set { position = value; }
         }
+        public Vector2 Origin
+        {
+            get { return origin; }
+            set { origin = value; }
+        }
 
         // Constructor
         public GameObject(Vector2 position)

@@ -56,7 +56,6 @@ namespace PongGame
             this.isFirstPlayer = isFirstPlayer;
             this.speed = 450;
             this.Position = position;
-            this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
 
         // Methods 
@@ -75,7 +74,7 @@ namespace PongGame
             velocity *= Speed;
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += (velocity * deltaTime);
-
+            this.Origin = new Vector2(rect.Width / 2, rect.Height / 2);
             base.Update(gameTime);
         }
         public override void OnCollision(GameObject other)

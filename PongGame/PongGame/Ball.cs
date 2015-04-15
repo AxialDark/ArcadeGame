@@ -11,17 +11,16 @@ namespace PongGame
     class Ball : GameObject
     {
         // Fields
-
+        private Player lastHitPlayer;
 
         // Properties
 
 
         // Constructor
-        public Ball(Vector2 position) : base(position)
+        public Ball(Vector2 position)
+            : base(position)
         {
             this.Position = position;
-            this.speed = 500;
-            this.origin = new Vector2(rect.Width / 2, rect.Height / 2);
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
             if (this.velocity.X == 0)
             {
@@ -43,7 +42,7 @@ namespace PongGame
         public override void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>(@"ballSheet");
-            
+
             CreateAnimation("MoveLeftBall", 3, 0, 0, 40, 40, new Vector2(0, 0), 3);
             CreateAnimation("MoveRightBall", 3, 40, 0, 40, 40, new Vector2(0, 0), 3);
             PlayAnimation("MoveLeftBall");
@@ -73,23 +72,38 @@ namespace PongGame
             }
             if (other is Player)
             {
-                this.velocity.X *= -1;
+                lastHitPlayer = other as Player;
+                //this.velocity.X *= -1;
+                //float deltaYOrigin = lastHitPlayer.Origin.Y - this.Origin.Y;
+                float deltaYPosition = lastHitPlayer.Position.Y - this.position.Y;
+                
+                float lastDir = this.velocity.X;
+
+                this.velocity = new Vector2(lastDir * -1, (-deltaYPosition) * 5);
+                if (velocity.Y < 0)
+                {
+                    velocity.Y *= 2;
+                }
+            }
+            if (other is PickUp)
+            {
+                HandlePickUp(other as PickUp);
             }
         }
 
         private void HandlePoint()
         {
-            if(this.Position.X > GameWorld.windowWidth)
+            if (this.Position.X > GameWorld.windowWidth)
             {
+                PoolManager.ReleaseBallObject(this);
                 GameWorld.ObjectsToRemove.Add(this);
-                //PoolManager.ReleaseBallObject(this);
                 GameWorld.Player1Score++;
                 SpawnNewBall();
             }
-            else if(this.Position.X < -20)
+            else if (this.Position.X < -20)
             {
+                PoolManager.ReleaseBallObject(this);
                 GameWorld.ObjectsToRemove.Add(this);
-                //PoolManager.ReleaseBallObject(this);
                 GameWorld.Player2Score++;
                 SpawnNewBall();
             }
@@ -97,6 +111,112 @@ namespace PongGame
         private void SpawnNewBall()
         {
             GameWorld.NewObjects.Add(PoolManager.CreateBall());
+        }
+        private void HandlePickUp(PickUp pickUp)
+        {
+            switch (pickUp.PickUpPowerUp)
+            {
+                case PickUpType.SlowPlayer:
+                    if (lastHitPlayer != null)
+                    {
+                        lastHitPlayer.HandlePickUp(pickUp);
+                        GameWorld.ObjectsToRemove.Add(pickUp);
+                    }
+                    break;
+                case PickUpType.FastPlayer:
+                    if (lastHitPlayer != null)
+                    {
+                        lastHitPlayer.HandlePickUp(pickUp);
+                        GameWorld.ObjectsToRemove.Add(pickUp);
+                    }
+                    break;
+                case PickUpType.FastBall:
+                    UsePickUp(pickUp);
+                    break;
+                case PickUpType.SpawnObstacle:
+                    break;
+                case PickUpType.MultiBall:
+                    UsePickUp(pickUp);
+                    break;
+                case PickUpType.BigPlayer:
+                    if (lastHitPlayer != null)
+                    {
+                        lastHitPlayer.HandlePickUp(pickUp);
+                        GameWorld.ObjectsToRemove.Add(pickUp);
+                    }
+                    break;
+                case PickUpType.SmallPlayer:
+                    if (lastHitPlayer != null)
+                    {
+                        lastHitPlayer.HandlePickUp(pickUp);
+                        GameWorld.ObjectsToRemove.Add(pickUp);
+                    }
+                    break;
+                case PickUpType.xScore:
+                    if (lastHitPlayer != null)
+                    {
+                        lastHitPlayer.HandlePickUp(pickUp);
+                        GameWorld.ObjectsToRemove.Add(pickUp);
+                    }
+                    break;
+                case PickUpType.SplitAndSlowBall:
+                    UsePickUp(pickUp);
+                    break;
+                case PickUpType.ColorChange:
+                    if (lastHitPlayer != null)
+                    {
+                        lastHitPlayer.HandlePickUp(pickUp);
+                        GameWorld.ObjectsToRemove.Add(pickUp);
+                    }
+                    break;
+                case PickUpType.BigBall:
+                    UsePickUp(pickUp);
+                    break;
+                case PickUpType.SmallBall:
+                    UsePickUp(pickUp);
+                    break;
+                case PickUpType.RotatingObstacle:
+                    break;
+                case PickUpType.InverseControl:
+                    if (lastHitPlayer != null)
+                    {
+                        lastHitPlayer.HandlePickUp(pickUp);
+                        GameWorld.ObjectsToRemove.Add(pickUp);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void UsePickUp(PickUp pickUp)
+        {
+            switch (pickUp.PickUpPowerUp)
+            {
+                case PickUpType.FastBall:
+                    this.speed += 100;
+                    break;
+                case PickUpType.MultiBall:
+                    GameWorld.NewObjects.Add(PoolManager.CreateBall());
+                    break;
+                case PickUpType.SplitAndSlowBall:
+                    float savedDir = this.Velocity.X;
+                    Ball extraBall = PoolManager.CreateBall();
+                    extraBall.Velocity = new Vector2(savedDir, -2);
+                    extraBall.Position = this.Position;
+                    this.Velocity = new Vector2(savedDir, 2);
+                    this.speed -= 50;
+                    extraBall.speed -= 50;
+                    GameWorld.NewObjects.Add(extraBall);
+                    break;
+                case PickUpType.BigBall:
+                    this.Scale += 1f;
+                    break;
+                case PickUpType.SmallBall:
+                    this.Scale -= 0.5f;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

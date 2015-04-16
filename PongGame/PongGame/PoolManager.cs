@@ -46,7 +46,7 @@ namespace PongGame
             obj.Position = new Vector2(GameWorld.windowWidth / 2, GameWorld.windowHeight / 2);
             obj.Velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
             obj.Speed = 400;
-            obj.PlayAnimation("MoveLeftBall");
+            obj.PlayAnimation("MoveBall");
             if (obj.Velocity.X == 0)
             {
                 if (RandomPicker.Rnd.Next(2) == 0)

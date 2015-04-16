@@ -17,15 +17,13 @@ namespace PongGame
         protected Vector2 origin = Vector2.Zero;
         protected Vector2 velocity;
         protected float speed = 200;
-        protected int frames;
-        protected Rectangle rect;
         private Rectangle[] rectangles;
         private Vector2 offset;
         private int currentIndex;
         private float rotation = 0;
         private float timeElapsed;
         private float fps = 30;
-        private float layver;
+        protected float layer = 0.0f;
         private float scale = 1f;
         private Color color = Color.White;
 
@@ -88,10 +86,9 @@ namespace PongGame
         {
             boxTexture = content.Load<Texture2D>(@"CollisionTexture");
         }
-
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, rectangles[currentIndex], color, rotation, origin, scale, effects, layver);
+            spriteBatch.Draw(texture, position, rectangles[currentIndex], color, rotation, origin, scale, effects, layer);
 #if DEBUG
             Rectangle topLine = new Rectangle(CollisionRect.X, CollisionRect.Y, CollisionRect.Width, 1);
             Rectangle rightLine = new Rectangle(CollisionRect.X + CollisionRect.Width, CollisionRect.Y, 1, CollisionRect.Height);
@@ -104,7 +101,6 @@ namespace PongGame
             spriteBatch.Draw(boxTexture, leftLine, Color.Red);
 #endif
         }
-
         public virtual void Update(GameTime gameTime)
         {
             timeElapsed += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -119,23 +115,17 @@ namespace PongGame
 
             HandleCollision();
         }
-
         protected void CreateAnimation(string name, int frames, int yPos, int xStartFrame, int width, int height, Vector2 offset, float fps)
         {
             if (!animations.ContainsKey(name))
                 animations.Add(name, new Animation(frames, yPos, xStartFrame, width, height, offset, fps));
         }
-
         public void PlayAnimation(string name)
         {
             rectangles = animations[name].Rectangle;
             fps = animations[name].Fps;
             offset = animations[name].Offset * scale;
-        }
-
-        public abstract void OnCollision(GameObject other);
-        public abstract void ExitCollision(GameObject other);
-
+        }        
         private void HandleCollision()
         {
             foreach (GameObject go in GameWorld.Objects)
@@ -153,5 +143,7 @@ namespace PongGame
                 }
             }
         }
+        public abstract void OnCollision(GameObject other);
+        public abstract void ExitCollision(GameObject other);
     }
 }

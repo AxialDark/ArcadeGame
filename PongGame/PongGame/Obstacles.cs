@@ -25,7 +25,7 @@ namespace PongGame
         {
             this.isMiddleLine = isMiddleLine;
             this.Position = position;
-            this.Origin = new Vector2(rect.Width / 2, rect.Height / 2);
+            this.layer = 0.0f;
         }
 
         // Methods

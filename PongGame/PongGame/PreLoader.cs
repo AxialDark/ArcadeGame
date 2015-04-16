@@ -14,12 +14,9 @@ namespace PongGame
         // 2: add the variable name in the loader funktion with the respective image
         // 3: in the object or script that needs the given texture, use PreLoader.[variable name] to get you texture :)
 
-        //public static Texture2D feetPlateShoes;
 
         public static Texture2D tempTest;
         public static Texture2D boxTexture;
-
-
 
         public static void LoadTextures(ContentManager content)
         {

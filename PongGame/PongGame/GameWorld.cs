@@ -25,7 +25,7 @@ namespace PongGame
         public static SpriteFont sf;
         public static SpriteFont sprFont;
         public static ContentManager myContent;
-        private Lazy<List<PickUp>> pickUps;        
+        private Lazy<List<PickUp>> pickUps;
         private DateTime pickUpDelay = DateTime.Now;
         private bool pickUpSpawned = false;
 
@@ -65,7 +65,8 @@ namespace PongGame
         }
 
         // Constructor
-        public GameWorld() : base()
+        public GameWorld()
+            : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -92,20 +93,18 @@ namespace PongGame
             objects.Add(new Obstacles(new Vector2(0, Window.ClientBounds.Height - 20), false));
             for (int i = 20; i < 520; i += 70)
             {
-                objects.Add(new Obstacles(new Vector2(Window.ClientBounds.Width / 2 - 15, i), true));    
+                objects.Add(new Obstacles(new Vector2(Window.ClientBounds.Width / 2 - 15, i), true));
             }
-                 
+
             IsMouseVisible = true;
             //graphics.IsFullScreen = true;
             windowWidth = Window.ClientBounds.Width;
             windowHeight = Window.ClientBounds.Height;
             //graphics.ApplyChanges();
             base.Initialize();
-            //SpawnPickUp();
-            
-            
-        }
 
+
+        }
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -118,7 +117,7 @@ namespace PongGame
             sprFont = Content.Load<SpriteFont>(@"myFont");
 
             PreLoader.LoadTextures(Content);
-            
+
             // TODO: use this.Content to load your game content here
             foreach (GameObject obj in objects)
             {
@@ -126,7 +125,6 @@ namespace PongGame
             }
 
         }
-
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -135,7 +133,6 @@ namespace PongGame
         {
             // TODO: Unload any non ContentManager content here
         }
-
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -150,12 +147,12 @@ namespace PongGame
             objects.AddRange(newObjects);
             newObjects.Clear();
 
-            foreach(GameObject dead in objectsToRemove)
+            foreach (GameObject dead in objectsToRemove)
             {
                 objects.Remove(dead);
             }
             objectsToRemove.Clear();
-            
+
             foreach (GameObject obj in objects)
             {
                 obj.Update(gameTime);
@@ -163,7 +160,6 @@ namespace PongGame
             SpawnPickUp();
             base.Update(gameTime);
         }
-
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -173,7 +169,7 @@ namespace PongGame
             GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
 
             foreach (GameObject go in objects)
             {
@@ -190,36 +186,32 @@ namespace PongGame
 
             base.Draw(gameTime);
         }
-
         public List<PickUp> LoadPickUps()
         {
             List<PickUp> tempPickUp = new List<PickUp>() 
             {
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.BigBall),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.BigPlayer),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.ColorChange),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.FastBall),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.FastPlayer),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.InverseControl),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.MultiBall),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.RotatingObstacle),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.SlowPlayer),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.SmallBall),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.SmallPlayer),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.SpawnObstacle),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.SplitAndSlowBall),
-              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 20)), false, 0, PickUpType.xScore)
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.BigBall),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.BigPlayer),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.ColorChange),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.FastBall),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.FastPlayer),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.InverseControl),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.MultiBall),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.SlowPlayer),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.SmallBall),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.SmallPlayer),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.SplitAndSlowBall),
+              new PickUp(new Vector2(RandomPicker.Rnd.Next(80, Window.ClientBounds.Width - 200), RandomPicker.Rnd.Next(20, Window.ClientBounds.Height - 40)), false, 0, PickUpType.xScore)
             };
 
 
             return tempPickUp;
         }
-
         private void SpawnPickUp()
         {
             if (pickUpDelay <= DateTime.Now)
             {
-                GameWorld.NewObjects.Add(PickUps[RandomPicker.Rnd.Next(0, 13)]);
+                GameWorld.NewObjects.Add(PickUps[RandomPicker.Rnd.Next(0, 11)]);
                 pickUpSpawned = true;
             }
             if (pickUpSpawned)

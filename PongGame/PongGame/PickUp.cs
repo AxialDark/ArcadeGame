@@ -36,6 +36,7 @@ namespace PongGame
         {
             this.pickUpPowerUp = pickUpPowerUp;
             LoadContent(GameWorld.myContent);
+            this.layer = 0.5f;
         }
 
         // Methods

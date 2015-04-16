@@ -10,7 +10,6 @@ namespace PongGame
         SlowPlayer,
         FastPlayer,
         FastBall,
-        SpawnObstacle,
         MultiBall,
         BigPlayer,
         SmallPlayer,
@@ -19,7 +18,6 @@ namespace PongGame
         ColorChange,
         BigBall,
         SmallBall,
-        RotatingObstacle,
         InverseControl
     }
 }

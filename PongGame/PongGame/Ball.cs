@@ -15,26 +15,21 @@ namespace PongGame
         private bool collidedWithPlayer1 = false;
         private bool collidedWithPlayer2 = false;
 
-        // Properties
-
-
-        // Constructor
         public Ball(Vector2 position)
             : base(position)
         {
             this.Position = position;
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
             this.speed = 400;
+            this.layer = 0.0f;
             if (this.velocity.X == 0)
             {
                 if (RandomPicker.Rnd.Next(2) == 0)
                 {
-                    //PlayAnimation("MoveLeftBall");
                     this.velocity.X = -1;
                 }
                 else
                 {
-                    //PlayAnimation("MoveRightBall");
                     this.velocity.X = 1;
                 }
             }
@@ -46,15 +41,13 @@ namespace PongGame
         {
             texture = content.Load<Texture2D>(@"pongBall");
 
-            CreateAnimation("MoveLeftBall", 3, 0, 0, 20, 20, new Vector2(0, 0), 3);
-            CreateAnimation("MoveRightBall", 3, 40, 0, 20, 20, new Vector2(0, 0), 3);
+            CreateAnimation("MoveBall", 3, 0, 0, 20, 20, new Vector2(0, 0), 3);
             CreateAnimation("BigBall", 3, 40, 0, 30, 30, Vector2.Zero, 1);
             CreateAnimation("SmallBall", 3, 0, 0, 10, 10, Vector2.Zero, 1);
-            PlayAnimation("MoveLeftBall");
+            PlayAnimation("MoveBall");
 
             base.LoadContent(content);
         }
-
         public override void Update(GameTime gameTime)
         {
             velocity.Normalize();
@@ -68,7 +61,6 @@ namespace PongGame
 
             base.Update(gameTime);
         }
-
         public override void OnCollision(GameObject other)
         {
             if (other is Obstacles)
@@ -110,7 +102,6 @@ namespace PongGame
                     collidedWithPlayer2 = false;
             }
         }
-
         private void HandlePoint()
         {
             if (this.Position.X > GameWorld.windowWidth)
@@ -163,11 +154,7 @@ namespace PongGame
                     GameWorld.ObjectsToRemove.Add(pickUp);
                     UsePickUp(pickUp);
                     break;
-
-                case PickUpType.SpawnObstacle:
-                    GameWorld.ObjectsToRemove.Add(pickUp);
-                    break;
-
+                
                 case PickUpType.MultiBall:
                     GameWorld.ObjectsToRemove.Add(pickUp);
                     UsePickUp(pickUp);
@@ -229,11 +216,7 @@ namespace PongGame
                     GameWorld.ObjectsToRemove.Add(pickUp);
                     UsePickUp(pickUp);
                     break;
-
-                case PickUpType.RotatingObstacle:
-                    GameWorld.ObjectsToRemove.Add(pickUp);
-                    break;
-
+               
                 case PickUpType.InverseControl:
                     if (lastHitPlayer != null)
                     {

@@ -15,7 +15,6 @@ namespace PongGame
         private bool hasPowerUp;
         private bool isFirstPlayer;
         private DateTime powerUpEnd;
-        private Ball ball;
         private bool inverseControl = false;
         //private Player player;
         private Random rnd = new Random();
@@ -35,26 +34,10 @@ namespace PongGame
             : base(position)
         {
             //Creates animations
-            CreateAnimation("MoveIdleUpLeftPlayer", 1, 0, 0, 15, 70, Vector2.Zero, 1);
-            CreateAnimation("MoveIdleDownLeftPlayer", 1, 70, 0, 15, 70, Vector2.Zero, 1);
-            CreateAnimation("MoveIdleUpRightPlayer", 1, 140, 0, 15, 70, Vector2.Zero, 1);
-            CreateAnimation("MoveIdleDownRightPlayer", 1, 210, 0, 15, 70, Vector2.Zero, 1);
+            CreateAnimation("IdlePlayer", 1, 0, 0, 15, 70, Vector2.Zero, 1);
             CreateAnimation("BigPlayer", 1, 210, 0, 15, 140, Vector2.Zero, 1);
             CreateAnimation("SmallPlayer", 1, 210, 0, 15, 35, Vector2.Zero, 1);
-
-            //CreateAnimation("CollisionUpLeftPlayer", 3, 0, 0, 50, 70, new Vector2(10, -5), 9);
-            //CreateAnimation("CollisionDownLeftPlayer", 3, 70, 0, 50, 70, new Vector2(-30, -4), 9);
-            //CreateAnimation("CollisionUpRightPlayer", 3, 140, 0, 50, 70, new Vector2(10, -5), 9);
-            //CreateAnimation("CollisionDownRightPlayer", 3, 210, 0, 50, 70, new Vector2(-30, -4), 9);
-
-            if (isFirstPlayer)
-            {
-                PlayAnimation("MoveIdleDownLeftPlayer");
-            }
-            else
-            {
-                PlayAnimation("MoveIdleDownRightPlayer");
-            }
+            PlayAnimation("IdlePlayer");
 
             this.isFirstPlayer = isFirstPlayer;
             this.speed = 450;
@@ -81,33 +64,7 @@ namespace PongGame
             base.Update(gameTime);
         }
         public override void OnCollision(GameObject other)
-        {
-            //if (other is Ball)
-            //{
-            //    if (isFirstPlayer)
-            //    {
-            //        if (position.Y < GameWorld.windowHeight / 2)
-            //        {
-            //            PlayAnimation("CollisionUpLeftPlayer");
-            //        }
-            //        else
-            //        {
-            //            PlayAnimation("CollisionDownLeftPlayer");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        if (position.Y < GameWorld.windowHeight / 2)
-            //        {
-            //            PlayAnimation("CollisionUpRightPlayer");
-            //        }
-            //        else
-            //        {
-            //            PlayAnimation("CollisionDownRightPlayer");
-            //        }
-            //    }
-            //}
-
+        {            
             if (other is Obstacles)
             {
                 if (position.Y <= 20)
@@ -120,18 +77,17 @@ namespace PongGame
                 }
             }
         }
+
         public void HandleInput(KeyboardState keyState)
         {
             if (isFirstPlayer)
             {
                 if (keyState.IsKeyDown(Keys.W))
-                {
-                    //PlayAnimation("MoveIdleUpLeftPlayer");
+                {                    
                     velocity += new Vector2(0, -1);
                 }
                 else if (keyState.IsKeyDown(Keys.S))
                 {
-                    //PlayAnimation("MoveIdleDownLeftPlayer");
                     velocity += new Vector2(0, 1);
                 }
             }
@@ -139,12 +95,10 @@ namespace PongGame
             {
                 if (keyState.IsKeyDown(Keys.Up))
                 {
-                    //PlayAnimation("MoveIdleUpRightPlayer");
                     velocity += new Vector2(0, -1);
                 }
                 else if (keyState.IsKeyDown(Keys.Down))
                 {
-                    //PlayAnimation("MoveIdleDownRightPlayer");
                     velocity += new Vector2(0, 1);
                 }
             }
@@ -156,12 +110,10 @@ namespace PongGame
             {
                 if (keyState.IsKeyDown(Keys.Down))
                 {
-                    //PlayAnimation("MoveIdleUpRightPlayer");
                     velocity += new Vector2(0, -1);
                 }
                 else if (keyState.IsKeyDown(Keys.Up))
                 {
-                    //PlayAnimation("MoveIdleDownRightPlayer");
                     velocity += new Vector2(0, 1);
                 }
             }
@@ -169,12 +121,10 @@ namespace PongGame
             {
                 if (keyState.IsKeyDown(Keys.S))
                 {
-                    //PlayAnimation("MoveIdleUpLeftPlayer");
                     velocity += new Vector2(0, -1);
                 }
                 else if (keyState.IsKeyDown(Keys.W))
                 {
-                    //PlayAnimation("MoveIdleDownLeftPlayer");
                     velocity += new Vector2(0, 1);
                 }
             }

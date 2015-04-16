@@ -62,8 +62,9 @@ namespace PongGame
 	}
         public override void Draw(SpriteBatch spriteBatch)
         {
+#if DEBUG
             spriteBatch.DrawString(GameWorld.sprFont, pickUpPowerUp.ToString(), new Vector2(position.X, position.Y - 20), Color.White);
-
+#endif
             base.Draw(spriteBatch);
         }
     }

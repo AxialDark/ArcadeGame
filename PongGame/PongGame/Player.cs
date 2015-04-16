@@ -248,5 +248,9 @@ namespace PongGame
                 #endregion
             }
         }
+
+        public override void ExitCollision(GameObject other)
+        {
+        }
     }
 }

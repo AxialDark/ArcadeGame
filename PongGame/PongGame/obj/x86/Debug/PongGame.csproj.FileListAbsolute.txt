@@ -177,12 +177,11 @@ C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\C
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\questionMark.png
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\NewFont.spritefont
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
-C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\ballSheet.png
-C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\staffSheet.png
-C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache
 C:\Users\Munk\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\pongPonger.png
 C:\Users\Munk\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\pongBall.png
 C:\Users\Munk\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\white.png
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\pongPonger.png
 C:\Users\Moon\Dropbox\My own\Programmering\PongGame\PongGame\bin\Windows\Debug\Content\pongBall.png
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\pongBall.png
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\pongBall.png
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.csprojResolveAssemblyReference.cache

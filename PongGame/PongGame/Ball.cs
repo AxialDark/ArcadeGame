@@ -12,6 +12,8 @@ namespace PongGame
     {
         // Fields
         private Player lastHitPlayer;
+        private bool collidedWithPlayer1 = false;
+        private bool collidedWithPlayer2 = false;
 
         // Properties
 
@@ -68,26 +70,52 @@ namespace PongGame
         {
             if (other is Obstacles)
             {
+                //Obstacles tempObstacle = other as Obstacles;
+                //if (!tempObstacle.IsMiddleLine)
                 this.velocity.Y *= -1;
             }
-            if (other is Player)
+            if (other is Player && !collidedWithPlayer1 && !collidedWithPlayer2)
             {
                 lastHitPlayer = other as Player;
+                lastHitPlayer.Velocity = new Vector2(0, 0);
+                if (lastHitPlayer.IsFirstPlayer)
+                    collidedWithPlayer1 = true;
+                else if (!lastHitPlayer.IsFirstPlayer)
+                    collidedWithPlayer2 = true;
                 //this.velocity.X *= -1;
                 //float deltaYOrigin = lastHitPlayer.Origin.Y - this.Origin.Y;
-                float deltaYPosition = lastHitPlayer.Position.Y - this.position.Y;
-                
+                //float deltaYPosition = lastHitPlayer.Position.Y - this.position.Y;
+
+                //float lastDir = this.velocity.X;
+
+                //this.velocity = new Vector2(lastDir * -1, (-deltaYPosition) * 5);
+                //if (velocity.Y < 0)
+                //{
+                //    velocity.Y *= 2;
+                //}
+
+                float midBall = (this.CollisionRect.Y + this.CollisionRect.Height) - (this.CollisionRect.Height / 2);
+                float midPlayer = (lastHitPlayer.CollisionRect.Y + lastHitPlayer.CollisionRect.Height) - (lastHitPlayer.CollisionRect.Height / 2);
+
+                float deltaY = midBall - midPlayer;
                 float lastDir = this.velocity.X;
 
-                this.velocity = new Vector2(lastDir * -1, (-deltaYPosition) * 5);
-                if (velocity.Y < 0)
-                {
-                    velocity.Y *= 2;
-                }
+                this.velocity = new Vector2(lastDir * -1, (deltaY) * 10);
             }
             if (other is PickUp)
             {
                 HandlePickUp(other as PickUp);
+            }
+        }
+        public override void ExitCollision(GameObject other)
+        {
+            if (other is Player)
+            {
+                Player temp = other as Player;
+                if (temp.IsFirstPlayer)
+                    collidedWithPlayer1 = false;
+                else if (!temp.IsFirstPlayer)
+                    collidedWithPlayer2 = false;
             }
         }
 
@@ -218,5 +246,7 @@ namespace PongGame
                     break;
             }
         }
+
+
     }
 }

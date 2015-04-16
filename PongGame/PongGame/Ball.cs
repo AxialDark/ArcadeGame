@@ -123,6 +123,7 @@ namespace PongGame
                         GameWorld.ObjectsToRemove.Add(pickUp);
                     }
                     break;
+
                 case PickUpType.FastPlayer:
                     if (lastHitPlayer != null)
                     {
@@ -130,14 +131,21 @@ namespace PongGame
                         GameWorld.ObjectsToRemove.Add(pickUp);
                     }
                     break;
+
                 case PickUpType.FastBall:
-                    UsePickUp(pickUp);
+                    GameWorld.ObjectsToRemove.Add(pickUp);
+                    UsePickUp(pickUp);                    
                     break;
+
                 case PickUpType.SpawnObstacle:
+                    GameWorld.ObjectsToRemove.Add(pickUp);
                     break;
+
                 case PickUpType.MultiBall:
+                    GameWorld.ObjectsToRemove.Add(pickUp);
                     UsePickUp(pickUp);
                     break;
+
                 case PickUpType.BigPlayer:
                     if (lastHitPlayer != null)
                     {
@@ -145,6 +153,7 @@ namespace PongGame
                         GameWorld.ObjectsToRemove.Add(pickUp);
                     }
                     break;
+
                 case PickUpType.SmallPlayer:
                     if (lastHitPlayer != null)
                     {
@@ -152,6 +161,7 @@ namespace PongGame
                         GameWorld.ObjectsToRemove.Add(pickUp);
                     }
                     break;
+
                 case PickUpType.xScore:
                     if (lastHitPlayer != null)
                     {
@@ -159,9 +169,12 @@ namespace PongGame
                         GameWorld.ObjectsToRemove.Add(pickUp);
                     }
                     break;
+
                 case PickUpType.SplitAndSlowBall:
+                    GameWorld.ObjectsToRemove.Add(pickUp);
                     UsePickUp(pickUp);
                     break;
+
                 case PickUpType.ColorChange:
                     if (lastHitPlayer != null)
                     {
@@ -169,14 +182,21 @@ namespace PongGame
                         GameWorld.ObjectsToRemove.Add(pickUp);
                     }
                     break;
+
                 case PickUpType.BigBall:
+                    GameWorld.ObjectsToRemove.Add(pickUp);
                     UsePickUp(pickUp);
                     break;
+
                 case PickUpType.SmallBall:
+                    GameWorld.ObjectsToRemove.Add(pickUp);
                     UsePickUp(pickUp);
                     break;
+
                 case PickUpType.RotatingObstacle:
+                    GameWorld.ObjectsToRemove.Add(pickUp);
                     break;
+
                 case PickUpType.InverseControl:
                     if (lastHitPlayer != null)
                     {
@@ -214,6 +234,14 @@ namespace PongGame
                 case PickUpType.SmallBall:
                     this.Scale -= 0.5f;
                     break;
+
+                case PickUpType.ColorChange:
+                    this.Color = new Color(
+                         (byte)RandomPicker.Rnd.Next(0, 255),
+                         (byte)RandomPicker.Rnd.Next(0, 255),
+                         (byte)RandomPicker.Rnd.Next(0, 255));
+                    break;
+
                 default:
                     break;
             }

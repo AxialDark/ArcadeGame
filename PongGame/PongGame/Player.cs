@@ -195,9 +195,9 @@ namespace PongGame
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.ColorChange)
                 {
                     this.Color = new Color(
-                         (byte)rnd.Next(0, 255),
-                         (byte)rnd.Next(0, 255),
-                         (byte)rnd.Next(0, 255));
+                         (byte)RandomPicker.Rnd.Next(0, 255),
+                         (byte)RandomPicker.Rnd.Next(0, 255),
+                         (byte)RandomPicker.Rnd.Next(0, 255));
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.FastBall)
                 {

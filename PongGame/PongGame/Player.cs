@@ -72,7 +72,6 @@ namespace PongGame
             velocity *= Speed;
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += (velocity * deltaTime);
-            this.Origin = new Vector2(rect.Width / 2, rect.Height / 2);
             base.Update(gameTime);
         }
         public override void OnCollision(GameObject other)
@@ -108,10 +107,14 @@ namespace PongGame
                 if (this.position.Y < 20)
                 {
                     this.position.Y = 20;
-                }
-                else if (position.Y + CollisionRect.Height > other.Position.Y)
-                {
-                    position.Y = other.Position.Y - CollisionRect.Height;
+                    if (position.Y <= 20)
+                    {
+                        position.Y = 20;
+                    }
+                    else if (position.Y + CollisionRect.Height > other.Position.Y)
+                    {
+                        position.Y = other.Position.Y - CollisionRect.Height;
+                    }
                 }
             }
         }

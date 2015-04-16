@@ -37,6 +37,7 @@ namespace PongGame
             this.pickUpPowerUp = pickUpPowerUp;
             LoadContent(GameWorld.myContent);
             this.layer = 0.5f;
+            SetupPickUp(this);
         }
 
         // Methods
@@ -65,6 +66,55 @@ namespace PongGame
             spriteBatch.DrawString(GameWorld.sprFont, pickUpPowerUp.ToString(), new Vector2(position.X, position.Y - 20), Color.White);
 
             base.Draw(spriteBatch);
+        }
+        private void SetupPickUp(PickUp pick)
+        {
+            switch (pick.PickUpPowerUp)
+            {
+                case PickUpType.SlowPlayer:
+                    hasEndTime = true;
+                    effectTime = 10;
+                    break;
+                case PickUpType.FastPlayer:
+                    hasEndTime = true;
+                    effectTime = 10;
+                    break;
+                case PickUpType.FastBall:
+                    hasEndTime = false;
+                    break;
+                case PickUpType.MultiBall:
+                    hasEndTime = false;
+                    break;
+                case PickUpType.BigPlayer:
+                    hasEndTime = true;
+                    effectTime = 10;
+                    break;
+                case PickUpType.SmallPlayer:
+                    hasEndTime = true;
+                    effectTime = 10;
+                    break;
+                case PickUpType.xScore:
+                    hasEndTime = false;
+                    break;
+                case PickUpType.SplitAndSlowBall:
+                    hasEndTime = false;
+                    break;
+                case PickUpType.ColorChange:
+                    hasEndTime = false;
+                    break;
+                case PickUpType.BigBall:
+                    hasEndTime = false;
+                    break;
+                case PickUpType.SmallBall:
+                    hasEndTime = false;
+                    break;
+                case PickUpType.InverseControl:
+                    hasEndTime = true;
+                    effectTime = 10;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

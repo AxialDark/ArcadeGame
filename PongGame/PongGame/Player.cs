@@ -15,6 +15,7 @@ namespace PongGame
         private bool hasPowerUp;
         private bool isFirstPlayer;
         private DateTime powerUpEnd;
+        private PickUpType currentPickUp;
         private bool inverseControl = false;
         //private Player player;
         private Random rnd = new Random();
@@ -61,6 +62,7 @@ namespace PongGame
             velocity *= Speed;
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += (velocity * deltaTime);
+            PickUpEffectTimeCheck();
             base.Update(gameTime);
         }
         public override void OnCollision(GameObject other)
@@ -133,11 +135,14 @@ namespace PongGame
         {
             if (pickUp is PickUp)
             {
+                PickUp tempPick = pickUp as PickUp;
                 #region PickUp's
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.BigPlayer)
                 {
+                    hasPowerUp = true;
                     PlayAnimation("BigPlayer");
-                    //this.Scale = 2.0f;
+                    currentPickUp = PickUpType.BigPlayer;
+                    powerUpEnd = DateTime.Now.AddSeconds(tempPick.EffectTime);
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.ColorChange)
                 {
@@ -148,21 +153,32 @@ namespace PongGame
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.FastPlayer)
                 {
+                    hasPowerUp = true;
                     this.Speed += 300.0f;
+                    currentPickUp = PickUpType.FastPlayer;
+                    powerUpEnd = DateTime.Now.AddSeconds(tempPick.EffectTime);
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.InverseControl)
                 {
-                    InverseControl(Keyboard.GetState());
+                    hasPowerUp = true;
                     inverseControl = true;
+                    currentPickUp = PickUpType.InverseControl;
+                    powerUpEnd = DateTime.Now.AddSeconds(tempPick.EffectTime);
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SlowPlayer)
                 {
+                    hasPowerUp = true;
                     this.Speed -= 250.0f;
+                    currentPickUp = PickUpType.SlowPlayer;
+                    powerUpEnd = DateTime.Now.AddSeconds(tempPick.EffectTime);
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SmallPlayer)
                 {
+                    hasPowerUp = true;
                     PlayAnimation("SmallPlayer");
-                    //this.Scale = 0.5f;
+                    currentPickUp = PickUpType.SmallPlayer;
+                    powerUpEnd = DateTime.Now.AddSeconds(tempPick.EffectTime);
+
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.xScore)
                 {
@@ -172,6 +188,26 @@ namespace PongGame
                         GameWorld.Player2Score += 2;
                 }
                 #endregion
+            }
+        }
+        private void PickUpEffectTimeCheck()
+        {
+            if (hasPowerUp)
+            {
+                if (powerUpEnd <= DateTime.Now)
+                {
+                    hasPowerUp = false;
+                    if (currentPickUp == PickUpType.BigPlayer)
+                        PlayAnimation("IdlePlayer");
+                    else if (currentPickUp == PickUpType.SmallPlayer)
+                        PlayAnimation("IdlePlayer");
+                    else if (currentPickUp == PickUpType.InverseControl)
+                        inverseControl = false;
+                    else if (currentPickUp == PickUpType.FastPlayer)
+                        this.speed = 450;
+                    else if (currentPickUp == PickUpType.SlowPlayer)
+                        this.speed = 450;
+                }
             }
         }
 

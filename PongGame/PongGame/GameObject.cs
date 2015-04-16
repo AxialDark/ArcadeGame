@@ -130,11 +130,11 @@ namespace PongGame
         {
             rectangles = animations[name].Rectangle;
             fps = animations[name].Fps;
-
             offset = animations[name].Offset * scale;
         }
 
         public abstract void OnCollision(GameObject other);
+        public abstract void ExitCollision(GameObject other);
 
         private void HandleCollision()
         {
@@ -145,6 +145,10 @@ namespace PongGame
                     if (go.CollisionRect.Intersects(this.CollisionRect))
                     {
                         OnCollision(go);
+                    }
+                    else if ((!go.CollisionRect.Intersects(this.CollisionRect)))
+                    {
+                        ExitCollision(go);
                     }
                 }
             }

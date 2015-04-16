@@ -57,5 +57,9 @@ namespace PongGame
         {
 
         }
+
+        public override void ExitCollision(GameObject other)
+        {
+        }
     }
 }

@@ -28,3 +28,6 @@ C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Release\SharpDX
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Release\SharpDX.Direct3D9.xml
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Release\PongGame.exe
 C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Release\PongGame.pdb
+C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Release\Content\myFont.xnb
+C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Release\Content\red.png
+C:\Users\Moon\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Release\PongGame.csprojResolveAssemblyReference.cache

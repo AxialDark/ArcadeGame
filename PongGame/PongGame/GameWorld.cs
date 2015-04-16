@@ -183,6 +183,7 @@ namespace PongGame
             spriteBatch.DrawString(sf, windowHeight.ToString(), new Vector2(Window.ClientBounds.Width / 2 + 30, 25), Color.White, 0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
             spriteBatch.DrawString(sf, gameTime.TotalGameTime.Seconds.ToString(), new Vector2(Window.ClientBounds.Width / 2, 25), Color.White, 0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
 #endif
+
             spriteBatch.End();
 
             base.Draw(gameTime);

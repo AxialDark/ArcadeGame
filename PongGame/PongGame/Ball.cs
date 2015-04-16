@@ -41,10 +41,10 @@ namespace PongGame
         // Methods
         public override void LoadContent(ContentManager content)
         {
-            texture = content.Load<Texture2D>(@"ballSheet");
+            texture = content.Load<Texture2D>(@"pongBall");
 
-            CreateAnimation("MoveLeftBall", 3, 0, 0, 40, 40, new Vector2(0, 0), 3);
-            CreateAnimation("MoveRightBall", 3, 40, 0, 40, 40, new Vector2(0, 0), 3);
+            CreateAnimation("MoveLeftBall", 3, 0, 0, 20, 20, new Vector2(0, 0), 3);
+            CreateAnimation("MoveRightBall", 3, 40, 0, 20, 20, new Vector2(0, 0), 3);
             PlayAnimation("MoveLeftBall");
 
             base.LoadContent(content);
@@ -53,7 +53,7 @@ namespace PongGame
         public override void Update(GameTime gameTime)
         {
             velocity.Normalize();
-            velocity *= Speed;
+            velocity *= Speed + speed;
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 

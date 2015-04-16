@@ -30,19 +30,18 @@ namespace PongGame
         }
 
         // Constructor
-        public Player(Vector2 position, bool isFirstPlayer)
-            : base(position)
+        public Player(Vector2 position, bool isFirstPlayer) : base(position)
         {
             //Creates animations
-            CreateAnimation("MoveIdleUpLeftPlayer", 1, 0, 0, 35, 70, Vector2.Zero, 1);
-            CreateAnimation("MoveIdleDownLeftPlayer", 1, 70, 0, 35, 70, Vector2.Zero, 1);
-            CreateAnimation("MoveIdleUpRightPlayer", 1, 140, 0, 35, 70, Vector2.Zero, 1);
-            CreateAnimation("MoveIdleDownRightPlayer", 1, 210, 0, 35, 70, Vector2.Zero, 1);
+            CreateAnimation("MoveIdleUpLeftPlayer", 1, 0, 0, 15, 70, Vector2.Zero, 1);
+            CreateAnimation("MoveIdleDownLeftPlayer", 1, 70, 0, 15, 70, Vector2.Zero, 1);
+            CreateAnimation("MoveIdleUpRightPlayer", 1, 140, 0, 15, 70, Vector2.Zero, 1);
+            CreateAnimation("MoveIdleDownRightPlayer", 1, 210, 0, 15, 70, Vector2.Zero, 1);
 
-            CreateAnimation("CollisionUpLeftPlayer", 3, 0, 0, 50, 70, Vector2.Zero, 1);
-            CreateAnimation("CollisionDownLeftPlayer", 3, 70, 0, 50, 70, Vector2.Zero, 1);
-            CreateAnimation("CollisionUpRightPlayer", 3, 140, 0, 50, 70, Vector2.Zero, 1);
-            CreateAnimation("CollisionDownRightPlayer", 3, 210, 0, 50, 70, Vector2.Zero, 1);
+            CreateAnimation("CollisionUpLeftPlayer", 3, 0, 0, 50, 70, new Vector2(10, -5), 9);
+            CreateAnimation("CollisionDownLeftPlayer", 3, 70, 0, 50, 70, new Vector2(-30, -4), 9);
+            CreateAnimation("CollisionUpRightPlayer", 3, 140, 0, 50, 70, new Vector2(10, -5), 9);
+            CreateAnimation("CollisionDownRightPlayer", 3, 210, 0, 50, 70, new Vector2(-30, -4), 9);
 
             if (isFirstPlayer)
             {
@@ -61,8 +60,7 @@ namespace PongGame
         // Methods 
         public override void LoadContent(ContentManager content)
         {
-            //texture = content.Load<Texture2D>(@"bowserSprites");
-            texture = content.Load<Texture2D>(@"staffSheet");
+            texture = content.Load<Texture2D>(@"white");
 
             base.LoadContent(content);
         }
@@ -103,16 +101,15 @@ namespace PongGame
             //            PlayAnimation("CollisionDownRightPlayer");
             //        }
             //    }
-
             //}
 
             if (other is Obstacles)
             {
-                if (position.Y + CollisionRect.Height < other.Position.Y)
+                if (this.position.Y < 20)
                 {
-                    position.Y = 100;
+                    this.position.Y = 20;
                 }
-                if (position.Y + CollisionRect.Height > other.Position.Y)
+                else if (position.Y + CollisionRect.Height > other.Position.Y)
                 {
                     position.Y = other.Position.Y - CollisionRect.Height;
                 }

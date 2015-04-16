@@ -70,8 +70,8 @@ namespace PongGame
         {
             // TODO: Add your initialization logic here
             myContent = Content;
-            objects.Add(new Player(new Vector2(10, 250), true));
-            objects.Add(new Player(new Vector2(Window.ClientBounds.Width - 50, 250), false));
+            objects.Add(new Player(new Vector2(60, 250), true));
+            objects.Add(new Player(new Vector2(Window.ClientBounds.Width - 85, 250), false));
             objects.Add(new Ball(new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height / 2)));
             objects.Add(new Obstacles(new Vector2(0, 0)));
             objects.Add(new Obstacles(new Vector2(0, Window.ClientBounds.Height - 20)));

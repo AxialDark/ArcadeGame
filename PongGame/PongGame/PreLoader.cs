@@ -20,7 +20,8 @@ namespace PongGame
 
         public static void LoadTextures(ContentManager content)
         {
-            tempTest = content.Load<Texture2D>(@"red");
+            //tempTest = content.Load<Texture2D>(@"red");
+            tempTest = content.Load<Texture2D>(@"questionMark");
             boxTexture = content.Load<Texture2D>(@"CollisionTexture");
         }
     }

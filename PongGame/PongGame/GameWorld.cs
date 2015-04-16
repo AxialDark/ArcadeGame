@@ -176,11 +176,11 @@ namespace PongGame
                 go.Draw(spriteBatch);
             }
 
-            spriteBatch.DrawString(sf, player1Score.ToString(), new Vector2(8, 0), Color.Black);
-            spriteBatch.DrawString(sf, player2Score.ToString(), new Vector2(Window.ClientBounds.Width - 20, 0), Color.Black);
-            spriteBatch.DrawString(sf, windowWidth.ToString(), new Vector2(Window.ClientBounds.Width / 2 - 30, 0), Color.Black);
-            spriteBatch.DrawString(sf, windowHeight.ToString(), new Vector2(Window.ClientBounds.Width / 2 + 30, 0), Color.Black);
-            spriteBatch.DrawString(sf, gameTime.TotalGameTime.Seconds.ToString(), new Vector2(Window.ClientBounds.Width / 2, 0), Color.Black);
+            spriteBatch.DrawString(sf, player1Score.ToString(), new Vector2(8, 25), Color.White);
+            spriteBatch.DrawString(sf, player2Score.ToString(), new Vector2(Window.ClientBounds.Width - 20, 25), Color.White);
+            //spriteBatch.DrawString(sf, windowWidth.ToString(), new Vector2(Window.ClientBounds.Width / 2 - 30, 25), Color.White);
+            //spriteBatch.DrawString(sf, windowHeight.ToString(), new Vector2(Window.ClientBounds.Width / 2 + 30, 25), Color.White);
+            spriteBatch.DrawString(sf, gameTime.TotalGameTime.TotalSeconds.ToString(), new Vector2(Window.ClientBounds.Width / 2, 25), Color.White);
 
             spriteBatch.End();
 

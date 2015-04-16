@@ -24,6 +24,7 @@ namespace PongGame
         {
             this.Position = position;
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
+            this.speed = 400;
             if (this.velocity.X == 0)
             {
                 if (RandomPicker.Rnd.Next(2) == 0)
@@ -47,6 +48,8 @@ namespace PongGame
 
             CreateAnimation("MoveLeftBall", 3, 0, 0, 20, 20, new Vector2(0, 0), 3);
             CreateAnimation("MoveRightBall", 3, 40, 0, 20, 20, new Vector2(0, 0), 3);
+            CreateAnimation("BigBall", 3, 40, 0, 30, 30, Vector2.Zero, 1);
+            CreateAnimation("SmallBall", 3, 0, 0, 10, 10, Vector2.Zero, 1);
             PlayAnimation("MoveLeftBall");
 
             base.LoadContent(content);
@@ -55,7 +58,7 @@ namespace PongGame
         public override void Update(GameTime gameTime)
         {
             velocity.Normalize();
-            velocity *= Speed + speed;
+            velocity *= speed;
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -82,17 +85,6 @@ namespace PongGame
                     collidedWithPlayer1 = true;
                 else if (!lastHitPlayer.IsFirstPlayer)
                     collidedWithPlayer2 = true;
-                //this.velocity.X *= -1;
-                //float deltaYOrigin = lastHitPlayer.Origin.Y - this.Origin.Y;
-                //float deltaYPosition = lastHitPlayer.Position.Y - this.position.Y;
-
-                //float lastDir = this.velocity.X;
-
-                //this.velocity = new Vector2(lastDir * -1, (-deltaYPosition) * 5);
-                //if (velocity.Y < 0)
-                //{
-                //    velocity.Y *= 2;
-                //}
 
                 float midBall = (this.CollisionRect.Y + this.CollisionRect.Height) - (this.CollisionRect.Height / 2);
                 float midPlayer = (lastHitPlayer.CollisionRect.Y + lastHitPlayer.CollisionRect.Height) - (lastHitPlayer.CollisionRect.Height / 2);
@@ -123,22 +115,29 @@ namespace PongGame
         {
             if (this.Position.X > GameWorld.windowWidth)
             {
-                PoolManager.ReleaseBallObject(this);
                 GameWorld.ObjectsToRemove.Add(this);
+                PoolManager.ReleaseBallObject(this);
                 GameWorld.Player1Score++;
                 SpawnNewBall();
             }
             else if (this.Position.X < -20)
             {
-                PoolManager.ReleaseBallObject(this);
                 GameWorld.ObjectsToRemove.Add(this);
+                PoolManager.ReleaseBallObject(this);
                 GameWorld.Player2Score++;
                 SpawnNewBall();
             }
         }
         private void SpawnNewBall()
         {
-            GameWorld.NewObjects.Add(PoolManager.CreateBall());
+            int ballCount = 0;
+            foreach (GameObject go in GameWorld.Objects)
+            {
+                if (go is Ball)
+                    ballCount++;
+            }
+            if (ballCount <= 1)
+                GameWorld.NewObjects.Add(PoolManager.CreateBall());
         }
         private void HandlePickUp(PickUp pickUp)
         {
@@ -162,7 +161,7 @@ namespace PongGame
 
                 case PickUpType.FastBall:
                     GameWorld.ObjectsToRemove.Add(pickUp);
-                    UsePickUp(pickUp);                    
+                    UsePickUp(pickUp);
                     break;
 
                 case PickUpType.SpawnObstacle:
@@ -241,7 +240,7 @@ namespace PongGame
             switch (pickUp.PickUpPowerUp)
             {
                 case PickUpType.FastBall:
-                    this.speed += 100;
+                    this.speed += 300;
                     break;
                 case PickUpType.MultiBall:
                     GameWorld.NewObjects.Add(PoolManager.CreateBall());
@@ -249,20 +248,19 @@ namespace PongGame
                 case PickUpType.SplitAndSlowBall:
                     float savedDir = this.Velocity.X;
                     Ball extraBall = PoolManager.CreateBall();
-                    extraBall.Velocity = new Vector2(savedDir, -2);
+                    extraBall.Velocity = new Vector2(savedDir, -10);
                     extraBall.Position = this.Position;
-                    this.Velocity = new Vector2(savedDir, 2);
-                    this.speed -= 50;
-                    extraBall.speed -= 50;
+                    this.Velocity = new Vector2(savedDir, 10);
+                    this.speed -= 100;
+                    extraBall.speed -= 100;
                     GameWorld.NewObjects.Add(extraBall);
                     break;
                 case PickUpType.BigBall:
-                    this.Scale += 1f;
+                    PlayAnimation("BigBall");
                     break;
                 case PickUpType.SmallBall:
-                    this.Scale -= 0.5f;
+                    PlayAnimation("SmallBall");
                     break;
-
                 case PickUpType.ColorChange:
                     this.Color = new Color(
                          (byte)RandomPicker.Rnd.Next(0, 255),

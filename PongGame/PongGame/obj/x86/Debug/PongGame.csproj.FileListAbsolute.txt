@@ -185,3 +185,5 @@ C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\obj\x86\Debug\PongGame.cspr
 C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\pongBall.png
 C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\myFont.xnb
 C:\Users\Jonas\Desktop\Spildatamatiker\2. Semester\Game Frameworks\Projekt\Ny mappe\PongGame\PongGame\bin\Windows\Debug\Content\red.png
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\myFont.xnb
+C:\Users\Alex\Documents\ArcadeGame\PongGame\PongGame\bin\Windows\Debug\Content\red.png

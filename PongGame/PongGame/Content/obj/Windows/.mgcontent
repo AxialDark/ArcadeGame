@@ -5,7 +5,6 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/Alex/Documents/ArcadeGame/PongGame/PongGame/Content/NewFont.spritefont</File>
-    <File>C:/Users/Jonas/Desktop/Spildatamatiker/2. Semester/Game Frameworks/Projekt/Ny mappe/PongGame/PongGame/Content/NewFont.spritefont</File>
-    <File>C:/Users/Jonas/Desktop/Spildatamatiker/2. Semester/Game Frameworks/Projekt/Ny mappe/PongGame/PongGame/Content/myFont.spritefont</File>
+    <File>C:/Users/Alex/Documents/ArcadeGame/PongGame/PongGame/Content/myFont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

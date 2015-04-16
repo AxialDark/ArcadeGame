@@ -96,7 +96,7 @@ namespace PongGame
             windowHeight = Window.ClientBounds.Height;
             //graphics.ApplyChanges();
             base.Initialize();
-            SpawnPickUp();
+            //SpawnPickUp();
             
             
         }
@@ -155,7 +155,7 @@ namespace PongGame
             {
                 obj.Update(gameTime);
             }
-
+            SpawnPickUp();
             base.Update(gameTime);
         }
 
@@ -212,13 +212,13 @@ namespace PongGame
         {
             if (pickUpDelay <= DateTime.Now)
             {
-                GameWorld.NewObjects.Add(PickUps[RandomPicker.Rnd.Next(0, 13)]);
+                GameWorld.NewObjects.Add(PickUps[/*RandomPicker.Rnd.Next(0, 13)*/12]);
                 pickUpSpawned = true;
             }
             if (pickUpSpawned)
             {
                 pickUpSpawned = false;
-                pickUpDelay = DateTime.Now.AddSeconds(RandomPicker.Rnd.Next(60, 180));
+                pickUpDelay = DateTime.Now.AddSeconds(RandomPicker.Rnd.Next(5, 50));
             }
         }
     }

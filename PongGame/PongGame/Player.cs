@@ -16,6 +16,7 @@ namespace PongGame
         private bool isFirstPlayer;
         private DateTime powerUpEnd;
         private Ball ball;
+        private bool inverseControl = false;
         //private Player player;
         private Random rnd = new Random();
 
@@ -30,18 +31,21 @@ namespace PongGame
         }
 
         // Constructor
-        public Player(Vector2 position, bool isFirstPlayer) : base(position)
+        public Player(Vector2 position, bool isFirstPlayer)
+            : base(position)
         {
             //Creates animations
             CreateAnimation("MoveIdleUpLeftPlayer", 1, 0, 0, 15, 70, Vector2.Zero, 1);
             CreateAnimation("MoveIdleDownLeftPlayer", 1, 70, 0, 15, 70, Vector2.Zero, 1);
             CreateAnimation("MoveIdleUpRightPlayer", 1, 140, 0, 15, 70, Vector2.Zero, 1);
             CreateAnimation("MoveIdleDownRightPlayer", 1, 210, 0, 15, 70, Vector2.Zero, 1);
+            CreateAnimation("BigPlayer", 1, 210, 0, 15, 140, Vector2.Zero, 1);
+            CreateAnimation("SmallPlayer", 1, 210, 0, 15, 35, Vector2.Zero, 1);
 
-            CreateAnimation("CollisionUpLeftPlayer", 3, 0, 0, 50, 70, new Vector2(10, -5), 9);
-            CreateAnimation("CollisionDownLeftPlayer", 3, 70, 0, 50, 70, new Vector2(-30, -4), 9);
-            CreateAnimation("CollisionUpRightPlayer", 3, 140, 0, 50, 70, new Vector2(10, -5), 9);
-            CreateAnimation("CollisionDownRightPlayer", 3, 210, 0, 50, 70, new Vector2(-30, -4), 9);
+            //CreateAnimation("CollisionUpLeftPlayer", 3, 0, 0, 50, 70, new Vector2(10, -5), 9);
+            //CreateAnimation("CollisionDownLeftPlayer", 3, 70, 0, 50, 70, new Vector2(-30, -4), 9);
+            //CreateAnimation("CollisionUpRightPlayer", 3, 140, 0, 50, 70, new Vector2(10, -5), 9);
+            //CreateAnimation("CollisionDownRightPlayer", 3, 210, 0, 50, 70, new Vector2(-30, -4), 9);
 
             if (isFirstPlayer)
             {
@@ -67,8 +71,10 @@ namespace PongGame
         public override void Update(GameTime gameTime)
         {
             velocity = Vector2.Zero;
-
-            HandleInput(Keyboard.GetState());
+            if (!inverseControl)
+                HandleInput(Keyboard.GetState());
+            else if (inverseControl)
+                InverseControl(Keyboard.GetState());
             velocity *= Speed;
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             Position += (velocity * deltaTime);
@@ -124,12 +130,12 @@ namespace PongGame
             {
                 if (keyState.IsKeyDown(Keys.W))
                 {
-                    PlayAnimation("MoveIdleUpLeftPlayer");
+                    //PlayAnimation("MoveIdleUpLeftPlayer");
                     velocity += new Vector2(0, -1);
                 }
                 else if (keyState.IsKeyDown(Keys.S))
                 {
-                    PlayAnimation("MoveIdleDownLeftPlayer");
+                    //PlayAnimation("MoveIdleDownLeftPlayer");
                     velocity += new Vector2(0, 1);
                 }
             }
@@ -137,12 +143,12 @@ namespace PongGame
             {
                 if (keyState.IsKeyDown(Keys.Up))
                 {
-                    PlayAnimation("MoveIdleUpRightPlayer");
+                    //PlayAnimation("MoveIdleUpRightPlayer");
                     velocity += new Vector2(0, -1);
                 }
                 else if (keyState.IsKeyDown(Keys.Down))
                 {
-                    PlayAnimation("MoveIdleDownRightPlayer");
+                    //PlayAnimation("MoveIdleDownRightPlayer");
                     velocity += new Vector2(0, 1);
                 }
             }
@@ -150,29 +156,29 @@ namespace PongGame
         }
         private void InverseControl(KeyboardState keyState)
         {
-            if (isFirstPlayer)
+            if (!isFirstPlayer)
             {
                 if (keyState.IsKeyDown(Keys.Down))
                 {
-                    PlayAnimation("MoveIdleUpRightPlayer");
+                    //PlayAnimation("MoveIdleUpRightPlayer");
                     velocity += new Vector2(0, -1);
                 }
                 else if (keyState.IsKeyDown(Keys.Up))
                 {
-                    PlayAnimation("MoveIdleDownRightPlayer");
+                    //PlayAnimation("MoveIdleDownRightPlayer");
                     velocity += new Vector2(0, 1);
                 }
             }
-            else
+            else if (isFirstPlayer)
             {
                 if (keyState.IsKeyDown(Keys.S))
                 {
-                    PlayAnimation("MoveIdleUpLeftPlayer");
+                    //PlayAnimation("MoveIdleUpLeftPlayer");
                     velocity += new Vector2(0, -1);
                 }
                 else if (keyState.IsKeyDown(Keys.W))
                 {
-                    PlayAnimation("MoveIdleDownLeftPlayer");
+                    //PlayAnimation("MoveIdleDownLeftPlayer");
                     velocity += new Vector2(0, 1);
                 }
             }
@@ -182,15 +188,10 @@ namespace PongGame
             if (pickUp is PickUp)
             {
                 #region PickUp's
-                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.BigBall)
-                {
-                    //TO something
-                    ball.Scale = 3.0f;
-
-                }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.BigPlayer)
                 {
-                    this.Scale = 3.0f;
+                    PlayAnimation("BigPlayer");
+                    //this.Scale = 2.0f;
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.ColorChange)
                 {
@@ -199,51 +200,30 @@ namespace PongGame
                          (byte)RandomPicker.Rnd.Next(0, 255),
                          (byte)RandomPicker.Rnd.Next(0, 255));
                 }
-                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.FastBall)
-                {
-                    ball.Speed = 50.0f;
-                }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.FastPlayer)
                 {
-                    this.Speed = 60.0f;
+                    this.Speed += 300.0f;
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.InverseControl)
                 {
                     InverseControl(Keyboard.GetState());
-                }
-                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.MultiBall)
-                {
-                    //DO SOMETHING TO SPAWN MULTIABLE BALLS 
-                }
-                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.RotatingObstacle)
-                {
-                    //DO SOMETHING TO ROTATE OBSTACLE
+                    inverseControl = true;
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SlowPlayer)
                 {
-                    this.Speed = 10.0f;
-                }
-                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SmallBall)
-                {
-                    ball.Scale = 0.5f;
+                    this.Speed -= 250.0f;
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SmallPlayer)
                 {
-                    this.Scale = 0.5f;
-                }
-                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SpawnObstacle)
-                {
-                    //DO SOMETHING TO SPAWNOBSTACLE
-                }
-                if ((pickUp as PickUp).PickUpPowerUp == PickUpType.SplitAndSlowBall)
-                {
-                    ball.Speed = 20.0f;
-                    //DO SOMETHING TO SPLIT THE BALL
+                    PlayAnimation("SmallPlayer");
+                    //this.Scale = 0.5f;
                 }
                 if ((pickUp as PickUp).PickUpPowerUp == PickUpType.xScore)
                 {
-                    GameWorld.Player1Score += 2;
-                    GameWorld.Player2Score += 2;
+                    if (this.isFirstPlayer)
+                        GameWorld.Player1Score += 2;
+                    else if (!this.isFirstPlayer)
+                        GameWorld.Player2Score += 2;
                 }
                 #endregion
             }

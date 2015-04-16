@@ -104,17 +104,13 @@ namespace PongGame
 
             if (other is Obstacles)
             {
-                if (this.position.Y < 20)
+                if (position.Y <= 20)
                 {
-                    this.position.Y = 20;
-                    if (position.Y <= 20)
-                    {
-                        position.Y = 20;
-                    }
-                    else if (position.Y + CollisionRect.Height > other.Position.Y)
-                    {
-                        position.Y = other.Position.Y - CollisionRect.Height;
-                    }
+                    position.Y = 20;
+                }
+                else if (position.Y + CollisionRect.Height > other.Position.Y)
+                {
+                    position.Y = other.Position.Y - CollisionRect.Height;
                 }
             }
         }

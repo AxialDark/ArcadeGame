@@ -92,7 +92,7 @@ namespace PongGame
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, rectangles[currentIndex], color, rotation, origin, scale, effects, layver);
-
+#if DEBUG
             Rectangle topLine = new Rectangle(CollisionRect.X, CollisionRect.Y, CollisionRect.Width, 1);
             Rectangle rightLine = new Rectangle(CollisionRect.X + CollisionRect.Width, CollisionRect.Y, 1, CollisionRect.Height);
             Rectangle bottomLine = new Rectangle(CollisionRect.X, CollisionRect.Y + CollisionRect.Height, CollisionRect.Width, 1);
@@ -102,6 +102,7 @@ namespace PongGame
             spriteBatch.Draw(boxTexture, rightLine, Color.Red);
             spriteBatch.Draw(boxTexture, bottomLine, Color.Red);
             spriteBatch.Draw(boxTexture, leftLine, Color.Red);
+#endif
         }
 
         public virtual void Update(GameTime gameTime)

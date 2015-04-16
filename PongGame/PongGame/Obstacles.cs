@@ -61,5 +61,16 @@ namespace PongGame
         public override void ExitCollision(GameObject other)
         {
         }
+
+        public void HandlePickUp(PickUp pickUp)
+        {
+            if (pickUp.PickUpPowerUp == PickUpType.ColorChange)
+            {
+                this.Color = new Color(
+                         (byte)RandomPicker.Rnd.Next(0, 255),
+                         (byte)RandomPicker.Rnd.Next(0, 255),
+                         (byte)RandomPicker.Rnd.Next(0, 255));
+            }
+        }
     }
 }

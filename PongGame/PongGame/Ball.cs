@@ -208,6 +208,16 @@ namespace PongGame
                         lastHitPlayer.HandlePickUp(pickUp);
                         GameWorld.ObjectsToRemove.Add(pickUp);
                     }
+                    foreach (GameObject go in GameWorld.Objects)
+                    {
+                        if (go is Obstacles)
+                        {
+                            Obstacles temp = go as Obstacles;
+                            temp.HandlePickUp(pickUp);
+                        }
+                            
+                    }
+                    UsePickUp(pickUp);
                     break;
 
                 case PickUpType.BigBall:

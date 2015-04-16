@@ -11,14 +11,19 @@ namespace PongGame
     class Obstacles : GameObject
     {
         // Fields
-
+        private bool isMiddleLine = false;
 
         // Properties
-
+        public bool IsMiddleLine
+        {
+            get { return isMiddleLine; }
+        }
 
         // Constructor
-        public Obstacles(Vector2 position) : base(position)
+        public Obstacles(Vector2 position, bool isMiddleLine)
+            : base(position)
         {
+            this.isMiddleLine = isMiddleLine;
             this.Position = position;
             this.Origin = new Vector2(rect.Width / 2, rect.Height / 2);
         }
@@ -28,9 +33,17 @@ namespace PongGame
         {
             texture = content.Load<Texture2D>(@"white");
 
-            CreateAnimation("IdleObstacle", 1, 0, 1, 1000, 20, new Vector2(0, 0), 1);
+            CreateAnimation("IdleBorder", 1, 0, 1, 1000, 20, new Vector2(0, 0), 1);
+            CreateAnimation("IdleMiddleLine", 1, 0, 1, 10, 25, new Vector2(0, 0), 1);
 
-            PlayAnimation("IdleObstacle");
+            if (!isMiddleLine)
+            {
+                PlayAnimation("IdleBorder");
+            }                
+            else if (isMiddleLine)
+            {
+                PlayAnimation("IdleMiddleLine");
+            }                
 
             base.LoadContent(content);
         }

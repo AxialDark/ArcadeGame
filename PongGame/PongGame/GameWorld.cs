@@ -88,8 +88,13 @@ namespace PongGame
             objects.Add(new Player(new Vector2(60, 250), true));
             objects.Add(new Player(new Vector2(Window.ClientBounds.Width - 85, 250), false));
             objects.Add(new Ball(new Vector2(Window.ClientBounds.Width / 2, Window.ClientBounds.Height / 2)));
-            objects.Add(new Obstacles(new Vector2(0, 0)));
-            objects.Add(new Obstacles(new Vector2(0, Window.ClientBounds.Height - 20)));
+            objects.Add(new Obstacles(new Vector2(0, 0), false));
+            objects.Add(new Obstacles(new Vector2(0, Window.ClientBounds.Height - 20), false));
+            for (int i = 20; i < 520; i += 70)
+            {
+                objects.Add(new Obstacles(new Vector2(Window.ClientBounds.Width / 2 - 15, i), true));    
+            }
+                 
             IsMouseVisible = true;
             //graphics.IsFullScreen = true;
             windowWidth = Window.ClientBounds.Width;
@@ -177,6 +182,8 @@ namespace PongGame
 
             spriteBatch.DrawString(sf, player1Score.ToString(), new Vector2(8, 0), Color.Black);
             spriteBatch.DrawString(sf, player2Score.ToString(), new Vector2(Window.ClientBounds.Width - 20, 0), Color.Black);
+            spriteBatch.DrawString(sf, windowWidth.ToString(), new Vector2(Window.ClientBounds.Width / 2 - 30, 0), Color.Black);
+            spriteBatch.DrawString(sf, windowHeight.ToString(), new Vector2(Window.ClientBounds.Width / 2 + 30, 0), Color.Black);
             spriteBatch.DrawString(sf, gameTime.TotalGameTime.Seconds.ToString(), new Vector2(Window.ClientBounds.Width / 2, 0), Color.Black);
 
             spriteBatch.End();

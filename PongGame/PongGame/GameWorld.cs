@@ -219,7 +219,7 @@ namespace PongGame
         {
             if (pickUpDelay <= DateTime.Now)
             {
-                GameWorld.NewObjects.Add(PickUps[/*RandomPicker.Rnd.Next(0, 13)*/12]);
+                GameWorld.NewObjects.Add(PickUps[RandomPicker.Rnd.Next(0, 13)]);
                 pickUpSpawned = true;
             }
             if (pickUpSpawned)

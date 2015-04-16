@@ -73,9 +73,9 @@ namespace PongGame
         {
             if (other is Obstacles)
             {
-                //Obstacles tempObstacle = other as Obstacles;
-                //if (!tempObstacle.IsMiddleLine)
-                this.velocity.Y *= -1;
+                Obstacles tempObstacle = other as Obstacles;
+                if (!tempObstacle.IsMiddleLine)
+                    this.velocity.Y *= -1;
             }
             if (other is Player && !collidedWithPlayer1 && !collidedWithPlayer2)
             {

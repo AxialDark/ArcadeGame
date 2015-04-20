@@ -39,7 +39,7 @@ namespace PongGame
             PlayAnimation("IdlePlayer");
 
             this.isFirstPlayer = isFirstPlayer;
-            this.speed = 450;
+            this.speed = 600;
             this.Position = position;
         }
 
@@ -202,9 +202,9 @@ namespace PongGame
                     else if (currentPickUp == PickUpType.InverseControl)
                         inverseControl = false;
                     else if (currentPickUp == PickUpType.FastPlayer)
-                        this.speed = 450;
+                        this.speed = 600;
                     else if (currentPickUp == PickUpType.SlowPlayer)
-                        this.speed = 450;
+                        this.speed = 600;
                 }
             }
         }

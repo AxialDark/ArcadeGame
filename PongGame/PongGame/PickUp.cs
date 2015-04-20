@@ -8,14 +8,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace PongGame
 {
-   
+
     class PickUp : GameObject
     {
         // Fields
         private bool hasEndTime;
         private int effectTime;
         private PickUpType pickUpPowerUp;
-        
+
         // Properties
         public bool HasEndTime
         {
@@ -32,7 +32,8 @@ namespace PongGame
         }
 
         // Constructor
-        public PickUp(Vector2 position, bool hasEndTime, int effectTime, PickUpType pickUpPowerUp) : base(position)
+        public PickUp(Vector2 position, bool hasEndTime, int effectTime, PickUpType pickUpPowerUp)
+            : base(position)
         {
             this.pickUpPowerUp = pickUpPowerUp;
             LoadContent(GameWorld.myContent);
@@ -48,19 +49,15 @@ namespace PongGame
             PlayAnimation("IdlePickUp");
             base.LoadContent(content);
         }
-
         public override void Update(GameTime gameTime)
         {
-
         }
         public override void OnCollision(GameObject other)
         {
-
         }
-
         public override void ExitCollision(GameObject other)
         {
-	}
+        }
         public override void Draw(SpriteBatch spriteBatch)
         {
 #if DEBUG
@@ -74,11 +71,11 @@ namespace PongGame
             {
                 case PickUpType.SlowPlayer:
                     hasEndTime = true;
-                    effectTime = 10;
+                    effectTime = 20;
                     break;
                 case PickUpType.FastPlayer:
                     hasEndTime = true;
-                    effectTime = 10;
+                    effectTime = 20;
                     break;
                 case PickUpType.FastBall:
                     hasEndTime = false;
@@ -88,11 +85,11 @@ namespace PongGame
                     break;
                 case PickUpType.BigPlayer:
                     hasEndTime = true;
-                    effectTime = 10;
+                    effectTime = 15;
                     break;
                 case PickUpType.SmallPlayer:
                     hasEndTime = true;
-                    effectTime = 10;
+                    effectTime = 20;
                     break;
                 case PickUpType.xScore:
                     hasEndTime = false;
@@ -111,7 +108,7 @@ namespace PongGame
                     break;
                 case PickUpType.InverseControl:
                     hasEndTime = true;
-                    effectTime = 10;
+                    effectTime = 40;
                     break;
                 default:
                     break;

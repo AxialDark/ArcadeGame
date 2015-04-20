@@ -20,7 +20,7 @@ namespace PongGame
         {
             this.Position = position;
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
-            this.speed = 400;
+            this.speed = 750;
             this.layer = 0.0f;
             if (this.velocity.X == 0)
             {

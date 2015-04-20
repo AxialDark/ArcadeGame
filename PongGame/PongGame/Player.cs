@@ -78,7 +78,7 @@ namespace PongGame
             }
         }
 
-        public void HandleInput(KeyboardState keyState)
+        private void HandleInput(KeyboardState keyState)
         {
             if (isFirstPlayer)
             {

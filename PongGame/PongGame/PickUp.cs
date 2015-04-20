@@ -89,7 +89,7 @@ namespace PongGame
                     break;
                 case PickUpType.SmallPlayer:
                     hasEndTime = true;
-                    effectTime = 20;
+                    effectTime = 15;
                     break;
                 case PickUpType.xScore:
                     hasEndTime = false;

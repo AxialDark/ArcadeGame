@@ -28,6 +28,7 @@ namespace PongGame
         private Lazy<List<PickUp>> pickUps;
         private DateTime pickUpDelay = DateTime.Now;
         private bool pickUpSpawned = false;
+        private static bool gameOver = false;
 
         // Properties
         public static List<GameObject> Objects
@@ -144,20 +145,30 @@ namespace PongGame
                 Exit();
 
             // TODO: Add your update logic here
-            objects.AddRange(newObjects);
-            newObjects.Clear();
-
-            foreach (GameObject dead in objectsToRemove)
+            if (!gameOver)
             {
-                objects.Remove(dead);
-            }
-            objectsToRemove.Clear();
+                objects.AddRange(newObjects);
+                newObjects.Clear();
 
-            foreach (GameObject obj in objects)
-            {
-                obj.Update(gameTime);
+                foreach (GameObject dead in objectsToRemove)
+                {
+                    objects.Remove(dead);
+                }
+                objectsToRemove.Clear();
+
+                foreach (GameObject obj in objects)
+                {
+                    obj.Update(gameTime);
+                }
+                Ball.SpawnNewBall();
+                SpawnPickUp();
             }
-            SpawnPickUp();
+            else if (gameOver)
+            {
+                RemoveCrapFromScreen();
+                RestartGame(Keyboard.GetState());
+            }
+            IsGameOver();
             base.Update(gameTime);
         }
         /// <summary>
@@ -176,14 +187,29 @@ namespace PongGame
                 go.Draw(spriteBatch);
             }
 
-            spriteBatch.DrawString(sf, player1Score.ToString(), new Vector2(8, 25), Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
-            spriteBatch.DrawString(sf, player2Score.ToString(), new Vector2(Window.ClientBounds.Width - 20, 25), Color.White, 0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
+            spriteBatch.DrawString(sf, "Player1: " + player1Score.ToString(), new Vector2(8, 25), Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
+            spriteBatch.DrawString(sf, "Player2: " + player2Score.ToString(), new Vector2(Window.ClientBounds.Width - sf.MeasureString("Player2: " + player2Score.ToString()).X - 8, 25), Color.White, 0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
 #if DEBUG
             spriteBatch.DrawString(sf, windowWidth.ToString(), new Vector2(Window.ClientBounds.Width / 2 - 30, 25), Color.White, 0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
             spriteBatch.DrawString(sf, windowHeight.ToString(), new Vector2(Window.ClientBounds.Width / 2 + 30, 25), Color.White, 0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
             spriteBatch.DrawString(sf, gameTime.TotalGameTime.Seconds.ToString(), new Vector2(Window.ClientBounds.Width / 2, 25), Color.White, 0f, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
 #endif
-
+            if (gameOver)
+            {
+                if (player1Score >= 10 && player2Score >= 10)
+                {
+                    spriteBatch.DrawString(sf, "It's a Draw", new Vector2(Window.ClientBounds.Width / 2 - sf.MeasureString("It's a Draw").X / 2, 50), Color.Green);
+                }
+                else if (player1Score >= 10)
+                {
+                    spriteBatch.DrawString(sf, "Player 1 Vandt", new Vector2(Window.ClientBounds.Width / 2 - sf.MeasureString("Player 1 Vandt").X / 2, 50), Color.Blue);
+                }
+                else if (player2Score >= 10)
+                {
+                    spriteBatch.DrawString(sf, "Player 2 Vandt", new Vector2(Window.ClientBounds.Width / 2 - sf.MeasureString("Player 2 Vandt").X / 2, 50), Color.Red);
+                }
+                spriteBatch.DrawString(sf, "Press R to try again", new Vector2(Window.ClientBounds.Width / 2 - sf.MeasureString("Press R to try again").X /2, 70), Color.Yellow);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -220,6 +246,40 @@ namespace PongGame
             {
                 pickUpSpawned = false;
                 pickUpDelay = DateTime.Now.AddSeconds(RandomPicker.Rnd.Next(5, 50));
+            }
+        }
+        private void RestartGame(KeyboardState keyState)
+        {
+            if (keyState.IsKeyDown(Keys.R))
+            {
+                player1Score = 0;
+                player2Score = 0;
+                objects.Clear();
+                newObjects.Clear();
+                objectsToRemove.Clear();
+                gameOver = false;
+                Initialize();
+            }
+        }
+        private void IsGameOver()
+        {
+            if (player1Score >= 10 || player2Score >= 10)
+            {
+                gameOver = true;
+            }
+        }
+        private void RemoveCrapFromScreen()
+        {
+            foreach (GameObject go in objects)
+            {
+                if (go is Ball)
+                    objectsToRemove.Add(go);
+                if (go is PickUp)
+                    objectsToRemove.Add(go);
+            }
+            foreach (GameObject dead in objectsToRemove)
+            {
+                objects.Remove(dead);
             }
         }
     }

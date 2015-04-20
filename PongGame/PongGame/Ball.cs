@@ -57,6 +57,7 @@ namespace PongGame
 
             Position += (velocity * deltaTime);
 
+            //SpawnNewBall();
             HandlePoint();
 
             base.Update(gameTime);
@@ -109,17 +110,17 @@ namespace PongGame
                 GameWorld.ObjectsToRemove.Add(this);
                 PoolManager.ReleaseBallObject(this);
                 GameWorld.Player1Score++;
-                SpawnNewBall();
+                //SpawnNewBall();
             }
             else if (this.Position.X < -20)
             {
                 GameWorld.ObjectsToRemove.Add(this);
                 PoolManager.ReleaseBallObject(this);
                 GameWorld.Player2Score++;
-                SpawnNewBall();
+                //SpawnNewBall();
             }
         }
-        private void SpawnNewBall()
+        public static void SpawnNewBall()
         {
             int ballCount = 0;
             foreach (GameObject go in GameWorld.Objects)
@@ -127,7 +128,7 @@ namespace PongGame
                 if (go is Ball)
                     ballCount++;
             }
-            if (ballCount <= 1)
+            if (ballCount <= 0)
                 GameWorld.NewObjects.Add(PoolManager.CreateBall());
         }
         private void HandlePickUp(PickUp pickUp)

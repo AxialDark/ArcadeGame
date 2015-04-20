@@ -28,7 +28,7 @@ namespace PongGame
         public PickUpType PickUpPowerUp
         {
             get { return pickUpPowerUp; }
-            set { pickUpPowerUp = value; }
+            //set { pickUpPowerUp = value; }
         }
 
         // Constructor

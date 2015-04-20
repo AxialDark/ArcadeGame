@@ -17,8 +17,6 @@ namespace PongGame
         private DateTime powerUpEnd;
         private PickUpType currentPickUp;
         private bool inverseControl = false;
-        //private Player player;
-        private Random rnd = new Random();
 
         // Properties
         public bool HasPowerUp

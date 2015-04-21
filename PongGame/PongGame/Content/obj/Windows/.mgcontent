@@ -4,7 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Moon/Documents/ArcadeGame/PongGame/PongGame/Content/NewFont.spritefont</File>
-    <File>C:/Users/Moon/Documents/ArcadeGame/PongGame/PongGame/Content/myFont.spritefont</File>
+    <File>C:/Users/Alex/Documents/ArcadeGame/PongGame/PongGame/Content/NewFont.spritefont</File>
+    <File>C:/Users/Alex/Documents/ArcadeGame/PongGame/PongGame/Content/myFont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

@@ -20,7 +20,7 @@ namespace PongGame
         {
             this.Position = position;
             this.velocity = new Vector2(RandomPicker.Rnd.Next(-1, 2), RandomPicker.Rnd.Next(-4, 5));
-            this.speed = 750;
+            this.speed = 400;
             this.layer = 0.0f;
             if (this.velocity.X == 0)
             {
@@ -136,7 +136,7 @@ namespace PongGame
             switch (pickUp.PickUpPowerUp)
             {
                 case PickUpType.SlowPlayer:
-                    if (lastHitPlayer != null)
+                    if (lastHitPlayer != null && !lastHitPlayer.HasPowerUp)
                     {
                         lastHitPlayer.HandlePickUp(pickUp);
                         GameWorld.ObjectsToRemove.Add(pickUp);
@@ -144,7 +144,7 @@ namespace PongGame
                     break;
 
                 case PickUpType.FastPlayer:
-                    if (lastHitPlayer != null)
+                    if (lastHitPlayer != null && !lastHitPlayer.HasPowerUp)
                     {
                         lastHitPlayer.HandlePickUp(pickUp);
                         GameWorld.ObjectsToRemove.Add(pickUp);
@@ -162,7 +162,7 @@ namespace PongGame
                     break;
 
                 case PickUpType.BigPlayer:
-                    if (lastHitPlayer != null)
+                    if (lastHitPlayer != null && !lastHitPlayer.HasPowerUp)
                     {
                         lastHitPlayer.HandlePickUp(pickUp);
                         GameWorld.ObjectsToRemove.Add(pickUp);
@@ -170,7 +170,7 @@ namespace PongGame
                     break;
 
                 case PickUpType.SmallPlayer:
-                    if (lastHitPlayer != null)
+                    if (lastHitPlayer != null && !lastHitPlayer.HasPowerUp)
                     {
                         lastHitPlayer.HandlePickUp(pickUp);
                         GameWorld.ObjectsToRemove.Add(pickUp);
@@ -178,7 +178,7 @@ namespace PongGame
                     break;
 
                 case PickUpType.xScore:
-                    if (lastHitPlayer != null)
+                    if (lastHitPlayer != null && !lastHitPlayer.HasPowerUp)
                     {
                         lastHitPlayer.HandlePickUp(pickUp);
                         GameWorld.ObjectsToRemove.Add(pickUp);
@@ -191,7 +191,7 @@ namespace PongGame
                     break;
 
                 case PickUpType.ColorChange:
-                    if (lastHitPlayer != null)
+                    if (lastHitPlayer != null && !lastHitPlayer.HasPowerUp)
                     {
                         lastHitPlayer.HandlePickUp(pickUp);
                         GameWorld.ObjectsToRemove.Add(pickUp);
@@ -219,7 +219,7 @@ namespace PongGame
                     break;
                
                 case PickUpType.InverseControl:
-                    if (lastHitPlayer != null)
+                    if (lastHitPlayer != null && !lastHitPlayer.HasPowerUp)
                     {
                         lastHitPlayer.HandlePickUp(pickUp);
                         GameWorld.ObjectsToRemove.Add(pickUp);

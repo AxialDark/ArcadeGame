@@ -208,7 +208,14 @@ namespace PongGame
                 {
                     spriteBatch.DrawString(sf, "Player 2 Vandt", new Vector2(Window.ClientBounds.Width / 2 - sf.MeasureString("Player 2 Vandt").X / 2, 50), Color.Red);
                 }
-                spriteBatch.DrawString(sf, "Press R to try again", new Vector2(Window.ClientBounds.Width / 2 - sf.MeasureString("Press R to try again").X /2, 70), Color.Yellow);
+                spriteBatch.DrawString(sf, "Press R to try again", new Vector2(Window.ClientBounds.Width / 2 - sf.MeasureString("Press R to try again").X / 2, 70), Color.Yellow);
+            }
+
+            if (gameTime.TotalGameTime.TotalSeconds < 10)
+            {
+                spriteBatch.DrawString(sf, "Spiller1 W og S", new Vector2(Window.ClientBounds.Width / 4 - sf.MeasureString("Spiller1 W og S").X / 2, Window.ClientBounds.Height / 2), Color.White);
+                spriteBatch.DrawString(sf, "Spiller2 pil OP og Ned", new Vector2(((Window.ClientBounds.Width / 4) * 3) - sf.MeasureString("Spiller2 pil OP og Ned").X / 2, Window.ClientBounds.Height / 2), Color.White);
+                spriteBatch.DrawString(sf, "De gule bokse er ekstra effekter, og er ikke altid gode :)", new Vector2(((Window.ClientBounds.Width / 4) * 2) - sf.MeasureString("De gule bokse er ekstra effekter, og er ikke altid gode :)").X / 2, Window.ClientBounds.Height / 2 +25), Color.White);
             }
             spriteBatch.End();
 
